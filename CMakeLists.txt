@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.14 FATAL_ERROR)
 
 project(Pferderennen LANGUAGES CXX)
 
-option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
+option(BUILD_SHARED_LIBS OFF)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -15,28 +15,21 @@ find_package(Qt5 COMPONENTS Widgets Core Gui REQUIRED)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# Add sub directories with local source code
 add_subdirectory(App)
 add_subdirectory(Libs/0-Plugins)
 add_subdirectory(Libs/1-Adapters)
 add_subdirectory(Libs/2-Application)
 add_subdirectory(Libs/3-Domain)
 
-# first we can indicate the documentation build as an option and set it to ON by default
-option(BUILD_DOC "Build documentation" ON)
-
-# check if Doxygen is installed
+option(BUILD_DOC ON)
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
-    # set input and output files
     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile.in)
     set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
-    # request to configure the file
     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
     message("Doxygen build started")
 
-    # note the option ALL which allows to build the docs together with the application
     add_custom_target( doc_doxygen ALL
         COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
@@ -45,3 +38,52 @@ if (DOXYGEN_FOUND)
 else (DOXYGEN_FOUND)
   message("Doxygen need to be installed to generate the doxygen documentation")
 endif (DOXYGEN_FOUND)
+set_property(TARGET doc_doxygen PROPERTY FOLDER "Doc")
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        release-1.11.0
+)
+FetchContent_MakeAvailable(googletest)
+
+set_property(TARGET gmock gmock_main gtest gtest_main PROPERTY FOLDER "External Projects")
+
+enable_testing()
+# Add more Tests to this List.
+# Be aware that you need to call your *.cpp and *.h file exactly like your test!
+set(UNIT_TESTS example)
+foreach(UNIT_TEST IN LISTS UNIT_TESTS)
+	add_executable(${UNIT_TEST} ./test/source/${UNIT_TEST}.cpp ./test/include/${UNIT_TEST}.h)
+
+	add_dependencies(${UNIT_TEST} gtest)
+	target_include_directories(${UNIT_TEST}
+		PUBLIC
+			${PROJECT_SOURCE_DIR}/test/include
+			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/1-Adapters/1-Adapters_autogen/include_Debug>
+			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/1-Adapters/1-Adapters_autogen/include_Release>
+			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/2-Application/2-Application_autogen/include_Debug>
+			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/2-Application/2-Application_autogen/include_Release>
+			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/3-Domain/3-Domain_autogen/include_Debug>
+			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/3-Domains/3-Domain_autogen/include_Release>
+			${source_dir}/test/include
+	)
+
+	target_link_libraries(${UNIT_TEST}
+		PUBLIC
+			Lib::1-Adapters
+			Lib::2-Application
+			Lib::3-Domain
+			Qt5::Widgets
+			Qt5::Core
+			Qt5::Gui
+			gtest
+			gtest_main
+	)
+
+	add_test(NAME    ${UNIT_TEST} 
+			 COMMAND ${UNIT_TEST})
+			 
+	set_property(TARGET ${UNIT_TEST} PROPERTY FOLDER "Tests")
+endforeach()
