@@ -10,4 +10,15 @@ target_include_directories(${PROJECT_NAME}
 		${PROJECT_SOURCE_DIR}/include
 )
 
+target_link_libraries(${PROJECT_NAME}
+	PUBLIC
+		Lib::4-Abstraction
+)
+
+target_include_directories(${PROJECT_NAME}
+	PUBLIC
+		$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Debug>
+		$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Release>	
+)
+
 set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER "Libs")
