@@ -3,13 +3,16 @@
 
 #include "CardIdentifier.h"
 
-class Card
+namespace Card
 {
-public:
-    Card(const CardIdentifier& cardIdentifier) : m_cardIdentifier(cardIdentifier) {}
+    class Card
+    {
+    public:
+        Card(const Identifier& identifier) : m_identifier(identifier) {}
 
-private:
-    const CardIdentifier m_cardIdentifier;
-};
+    private:
+        const Identifier m_identifier;
+    };
+}
 
 #endif // CARD_H

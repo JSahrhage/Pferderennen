@@ -6,19 +6,20 @@
 #include "Card.h"
 #include "CardDeckType.h"
 
-class CardDeck
+namespace Card
 {
-public:
-    CardDeck(const CardDeckType& cardDeckType);
-    CardDeck() = delete;
+    class Deck
+    {
+    public:
+        Deck(const DeckType& deckType);
 
-private:
-    void fillDeck();
-    void addCardPips(const CardSuit& cardSuit);
+    private:
+        void fillDeck();
+        void addPips(const Suit& suit);
 
-private:
-    std::vector<Card> m_cardDeck;
-    const CardDeckType m_cardDeckType;
-};
-
+    private:
+        std::vector<Card> m_deck;
+        const DeckType m_deckType;
+    };
+}
 #endif // CARD_DECK_H

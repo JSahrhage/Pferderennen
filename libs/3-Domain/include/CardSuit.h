@@ -3,8 +3,11 @@
 
 #include <vector>
 
-enum class CardSuit { Clubs, Diamonds, Hearts, Spades };
+namespace Card
+{
+    enum class Suit { Clubs, Diamonds, Hearts, Spades };
 
-std::vector<CardSuit> allCardSuits = { CardSuit::Clubs, CardSuit::Diamonds, CardSuit::Hearts, CardSuit::Spades };
+    const std::vector<Suit> allSuits = { Suit::Clubs, Suit::Diamonds, Suit::Hearts, Suit::Spades };
+}
 
 #endif // CARD_SUIT_H

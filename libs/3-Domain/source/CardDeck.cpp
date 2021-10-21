@@ -1,23 +1,23 @@
 #include "CardDeck.h"
 
-CardDeck::CardDeck(const CardDeckType& cardDeckType) : m_cardDeckType(cardDeckType)
+Card::Deck::Deck(const DeckType& deckType) : m_deckType(deckType)
 {
     fillDeck();
 }
 
-void CardDeck::fillDeck()
+void Card::Deck::fillDeck()
 {
-    for (const CardSuit& cardSuit : m_cardDeckType.getCardSuits())
+    for (const auto& cardSuit : m_deckType.getSuits())
     {
-        addCardPips(cardSuit);
+        addPips(cardSuit);
     }
 }
 
-void CardDeck::addCardPips(const CardSuit& cardSuit)
+void Card::Deck::addPips(const Suit& suit)
 {
-    for (const CardPip& cardPip : m_cardDeckType.getCardPips())
+    for (const auto& pip : m_deckType.getPips())
     {
-        Card card(CardIdentifier(cardSuit, cardPip));
-        m_cardDeck.push_back(card);
+        Card card = Card(Identifier(suit, pip));
+        m_deck.push_back(card);
     }
 }

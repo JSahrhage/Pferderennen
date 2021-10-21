@@ -6,16 +6,19 @@
 #include "CardSuit.h"
 #include "CardPip.h"
 
-class CardDeckType
+namespace Card
 {
-public:
-    CardDeckType(const std::vector<CardSuit> cardSuits, const std::vector<CardPip> cardPips) : m_cardSuits(cardSuits), m_cardPips(cardPips) {}
-    const std::vector<CardSuit> getCardSuits() const { return this->m_cardSuits; }
-    const std::vector<CardPip> getCardPips() const { return this->m_cardPips; }
+    class DeckType
+    {
+    public:
+        DeckType(const std::vector<Suit> suits, const std::vector<Pip> pips) : m_suits(suits), m_pips(pips) {}
+        const std::vector<Suit> getSuits() const { return this->m_suits; }
+        const std::vector<Pip> getPips() const { return this->m_pips; }
 
-private:
-    const std::vector<CardSuit> m_cardSuits;
-    const std::vector<CardPip> m_cardPips;
-};
+    private:
+        const std::vector<Suit> m_suits;
+        const std::vector<Pip> m_pips;
+    };
+}
 
 #endif // CARD_DECK_TYPE_H

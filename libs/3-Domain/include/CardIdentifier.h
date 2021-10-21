@@ -4,14 +4,17 @@
 #include "CardSuit.h"
 #include "CardPip.h"
 
-class CardIdentifier
+namespace Card
 {
-public:
-    CardIdentifier(const CardSuit& cardSuit, const CardPip& cardPip) : m_cardSuit(cardSuit), m_cardPip(cardPip) {}
+    class Identifier
+    {
+    public:
+        Identifier(const Suit& suit, const Pip& pip) : m_suit(suit), m_pip(pip) {}
 
-private:
-    const CardSuit m_cardSuit;
-    const CardPip m_cardPip;
-};
+    private:
+        const Suit m_suit;
+        const Pip m_pip;
+    };
+}
 
 #endif // CARD_IDENTIFIER_H
