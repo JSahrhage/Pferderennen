@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+// C++ Library Includes
 #include <string>
 
 class Player
@@ -8,8 +9,10 @@ class Player
 public:
     Player(const std::string& name) : m_name(name) {}
 
+    std::string getName() { return this->m_name; }
+
 private:
-    const std::string m_name;
+    std::string m_name;
 };
 
-#endif // PLAYER_H
+#endif PLAYER_H

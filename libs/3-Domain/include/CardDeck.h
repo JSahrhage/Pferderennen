@@ -1,8 +1,10 @@
 #ifndef CARD_DECK_H
 #define CARD_DECK_H
 
+// C++ Library Includes
 #include <vector>
 
+// Project Includes
 #include "Card.h"
 #include "CardDeckType.h"
 
@@ -13,13 +15,15 @@ namespace Card
     public:
         Deck(const DeckType& deckType);
 
+        void print();
+        void shuffle();
+        Card draw();
     private:
         void fillDeck();
         void addPips(const Suit& suit);
 
-    private:
         std::vector<Card> m_deck;
-        const DeckType m_deckType;
+        DeckType m_deckType;
     };
 }
 #endif // CARD_DECK_H

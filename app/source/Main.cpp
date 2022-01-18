@@ -1,12 +1,10 @@
 // Project Includes
 #include "Main.h"
-#include "CardDeck.h"
-
-#include <iostream>
-#include <string>
+#include "QtPlugin.h"
 
 int main(int argc, char *argv[])
 {
-    Card::Deck cardDeck = Card::Deck(Card::DeckType(Card::allSuits, Card::piquetPips));
+    QtPlugin qt = QtPlugin(argc, argv);
+
     return 0;
 }

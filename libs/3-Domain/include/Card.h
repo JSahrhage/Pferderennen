@@ -1,6 +1,7 @@
 #ifndef CARD_H
 #define CARD_H
 
+// Project Includes
 #include "CardIdentifier.h"
 
 namespace Card
@@ -10,8 +11,9 @@ namespace Card
     public:
         Card(const Identifier& identifier) : m_identifier(identifier) {}
 
+        void print() const;
     private:
-        const Identifier m_identifier;
+        Identifier m_identifier;
     };
 }
 
