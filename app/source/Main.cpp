@@ -1,10 +1,28 @@
+// C++ Library Includes
+#include <iostream>
+#include <string>
+
+// Qt Includes
+#include <QApplication>
+
 // Project Includes
 #include "Main.h"
-#include "QtPlugin.h"
+#include "QView.h"
+#include "Controller.h"
+#include "GameView.h"
 
 int main(int argc, char *argv[])
 {
-    QtPlugin qt = QtPlugin(argc, argv);
+    QApplication application = QApplication(argc, argv);
+    std::shared_ptr<Model> model = std::make_shared<Model>(Model());
+    std::shared_ptr<QView> view = std::make_shared<QView>(QView(model));
+    std::shared_ptr<Controller> controller = std::make_shared<Controller>(Controller(model, view));
 
-    return 0;
+    view->setController(controller);
+
+    model->setGameView(Game::View::GameModeSelection);
+    controller->onLoad();
+
+    view->getMainWindow()->show();
+    return application.exec();
 }
