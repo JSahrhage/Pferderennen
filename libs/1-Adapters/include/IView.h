@@ -1,14 +1,17 @@
 #ifndef I_VIEW_H
 #define I_VIEW_H
 
+// C++ Library Includes
+#include <memory>
+
 // Project Includes
-#include "Model.h"
+#include "IController.h"
 
 class IView
 {
 public:
     virtual ~IView() {}
-    virtual void setModel(std::shared_ptr<Model> model) = 0;
+    virtual void setController(std::shared_ptr<IController> controller) = 0;
     virtual void render() = 0;
 };
 

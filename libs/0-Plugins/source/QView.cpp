@@ -4,35 +4,17 @@
 // Project Includes
 #include "QView.h"
 
-QView::QView(std::shared_ptr<Model> model) : m_model(model)
+QView::QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig) : m_model(model), m_assetConfig(assetConfig)
 {
-    if (model == nullptr)
-    {
-        throw std::invalid_argument("model must not be null");
-    }
+    this->m_selectGameModeWidget = new QSelectGameModeWidget(assetConfig);
 
     this->m_mainWindow->setStyleSheet("background-color: #2D2D30");
     this->m_mainWindow->setWindowTitle("Pferderennen");
     this->m_mainWindow->showMaximized();
 }
 
-void QView::setModel(std::shared_ptr<Model> model)
-{
-    if (model == nullptr)
-    {
-        throw std::invalid_argument("model must not be null");
-    }
-
-    this->m_model = model;
-}
-
 void QView::setController(std::shared_ptr<IController> controller)
 {
-    if (controller == nullptr)
-    {
-        throw std::invalid_argument("controller must not be null");
-    }
-
     this->m_controller = controller;
     this->m_selectGameModeWidget->setController(controller);
 }

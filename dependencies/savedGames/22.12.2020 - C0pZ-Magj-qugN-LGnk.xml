@@ -1,0 +1,354 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<Save>
+	<Turn type = "Diamond">
+		<Player name = "Fynn">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "4"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Jan">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "4"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "4"></Receiver>
+		</Player>
+		<Player name = "Matze">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "4"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Ole">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "4"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Janni">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "4"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Lampe">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "10"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Louis">
+			<Receiver name = "Finn" sips = "6"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Fynn">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "8"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Matze">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "4"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Ole">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "4"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "4"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Jan">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "3"></Receiver>
+			<Receiver name = "Philipp" sips = "3"></Receiver>
+		</Player>
+		<Player name = "Louis">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "3"></Receiver>
+			<Receiver name = "Philipp" sips = "3"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Louis">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "2"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "2"></Receiver>
+			<Receiver name = "Matze" sips = "2"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Louis">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "2"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "2"></Receiver>
+			<Receiver name = "Philipp" sips = "2"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Finn">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "3"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "3"></Receiver>
+		</Player>
+		<Player name = "Janni">
+			<Receiver name = "Finn" sips = "4"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Malte">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "2"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "3"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "3"></Receiver>
+		</Player>
+		<Player name = "Philipp">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "4"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Louis">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Lampe" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "6"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Fynn">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "6"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Janni">
+			<Receiver name = "Finn" sips = "2"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "2"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Louis">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "2"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "4"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Finn">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "3"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "3"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Philipp">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "4"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Jan">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "6"></Receiver>
+		</Player>
+		<Player name = "Matze">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "4"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+		<Player name = "Ole">
+			<Receiver name = "Finn" sips = "3"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "3"></Receiver>
+			<Receiver name = "Matze" sips = "0"></Receiver>
+			<Receiver name = "Ole" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "0"></Receiver>
+		</Player>
+	</Turn>
+	<Turn type = "Diamond">
+		<Player name = "Malte">
+			<Receiver name = "Finn" sips = "0"></Receiver>
+			<Receiver name = "Fynn" sips = "0"></Receiver>
+			<Receiver name = "Jan" sips = "0"></Receiver>
+			<Receiver name = "Janni" sips = "0"></Receiver>
+			<Receiver name = "Louis" sips = "0"></Receiver>
+			<Receiver name = "Malte" sips = "0"></Receiver>
+			<Receiver name = "Philipp" sips = "8"></Receiver>
+		</Player>
+	</Turn>
+</Save>

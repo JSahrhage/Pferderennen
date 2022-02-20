@@ -6,6 +6,8 @@
 
 // Project Includes
 #include "IController.h"
+#include "Model.h"
+#include "IView.h"
 
 class Controller : public IController
 {

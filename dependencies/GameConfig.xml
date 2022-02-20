@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<GameConfig>
+	<GameOptions>
+		<ApplyAdvancedHurdles bool = "false"></ApplyAdvancedHurdles>
+	</GameOptions>
+	<Chances>
+		<TriggerRandomEventChance chance = "125"></TriggerRandomEventChance>
+		<DownDrinkChance chance = "5"></DownDrinkChance>
+		<DoubleSipsChance chance = "25"></DoubleSipsChance>
+		<TruthChance chance = "25"></TruthChance>
+		<DareChance chance = "25"></DareChance>
+		<ListRandomTopicChance chance = "20"></ListRandomTopicChance>
+	</Chances>
+</GameConfig>

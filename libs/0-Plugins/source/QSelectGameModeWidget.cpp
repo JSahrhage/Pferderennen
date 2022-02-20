@@ -3,8 +3,9 @@
 
 // Project Includes
 #include "QSelectGameModeWidget.h"
+#include "AssetConfig.h"
 
-QSelectGameModeWidget::QSelectGameModeWidget(QWidget* parent) : QWidget(parent)
+QSelectGameModeWidget::QSelectGameModeWidget(std::shared_ptr<IConfig> assetConfig, QWidget* parent) : m_assetConfig(assetConfig), QWidget(parent)
 {
     GenerateGeneralLayout();
     Connects();
@@ -23,25 +24,32 @@ void QSelectGameModeWidget::Connects()
 
 void QSelectGameModeWidget::setController(std::shared_ptr<IController> controller)
 {
-    if (controller == nullptr)
-    {
-        throw std::invalid_argument("controller must not be null");
-    }
-
     this->m_controller = controller;
 }
 
 void QSelectGameModeWidget::GenerateGeneralLayout()
 {
-    QHBoxLayout* layout = new QHBoxLayout();
-    QPushButton* button = new QPushButton();
-    button->setText("Test");
-    button->setStyleSheet("color: red");
-    layout->addWidget(button);
+    std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
 
-    connect(button, &QPushButton::clicked, this, &QSelectGameModeWidget::printStuff);
+    QPixmap logoLabelPixmap(QString::fromStdString(pathToAssets + "/chooseGameModeAssets/Logo.png"));
+    logoLabelPixmap = logoLabelPixmap.scaled(logoLabel->size());
+    logoLabel->setPixmap(logoLabelPixmap);
 
-    this->setLayout(layout);
+    QPixmap classicModePushButtonPixmap(QString::fromStdString(pathToAssets + "/chooseGameModeAssets/ClassicModeButtonIcon.png"));
+    QIcon classicModePushButtonIcon(classicModePushButtonPixmap);
+    classicModePushButton->setIcon(classicModePushButtonIcon);
+    classicModePushButton->setIconSize(QSize(320, 160));
+
+    QPixmap advancedModePushButtonPixmap(QString::fromStdString(pathToAssets + "/chooseGameModeAssets/AdvancedModeButtonIcon.png"));
+    QIcon advancedModePushButtonIcon(advancedModePushButtonPixmap);
+    advancedModePushButton->setIcon(advancedModePushButtonIcon);
+    advancedModePushButton->setIconSize(QSize(320, 160));
+
+    mainLayout->addWidget(logoLabel, 12, Qt::AlignCenter);
+    mainLayout->addWidget(classicModePushButton, 8, Qt::AlignCenter);
+    mainLayout->addWidget(advancedModePushButton, 8, Qt::AlignCenter);
+
+    this->setLayout(mainLayout);
 }
 
 void QSelectGameModeWidget::printStuff()

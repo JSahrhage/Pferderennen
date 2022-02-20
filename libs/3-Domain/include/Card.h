@@ -4,6 +4,8 @@
 // Project Includes
 #include "CardIdentifier.h"
 
+// ValueObject
+
 namespace Card
 {
     class Card

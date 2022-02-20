@@ -1,10 +1,6 @@
 #ifndef I_CONTROLLER_H
 #define I_CONTROLLER_H
 
-// Project Includes
-#include "Model.h"
-#include "IView.h"
-
 class IController
 {
 public:
