@@ -20,7 +20,7 @@ public:
     Game::Mode getGameMode();
 
 private:
-    Game::View m_gameView = Game::View::GameModeSelection;
+    Game::View m_gameView = Game::View::SelectGameMode;
     Game::Mode m_gameMode = Game::Mode::Normal;
 };
 

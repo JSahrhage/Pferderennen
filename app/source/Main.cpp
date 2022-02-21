@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
     std::shared_ptr<QView> view = std::make_shared<QView>(QView(model, assetConfig));
     std::shared_ptr<Controller> controller = std::make_shared<Controller>(Controller(model, view));
 
-    view->setController(controller);
+    view->setWidgetController(controller);
 
-    model->setGameView(Game::View::GameModeSelection);
+    model->setGameView(Game::View::SelectGameMode);
     controller->onLoad();
 
     view->getMainWindow()->show();

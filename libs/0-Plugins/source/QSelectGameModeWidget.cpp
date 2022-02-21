@@ -5,10 +5,10 @@
 #include "QSelectGameModeWidget.h"
 #include "AssetConfig.h"
 
-QSelectGameModeWidget::QSelectGameModeWidget(std::shared_ptr<IConfig> assetConfig, QWidget* parent) : m_assetConfig(assetConfig), QWidget(parent)
+QSelectGameModeWidget::QSelectGameModeWidget(std::shared_ptr<IConfig> assetConfig, QWidget* parent) : m_assetConfig(assetConfig)
 {
-    GenerateGeneralLayout();
-    Connects();
+    generateGeneralLayout();
+    connects();
 }
 
 QSelectGameModeWidget::~QSelectGameModeWidget()
@@ -16,7 +16,7 @@ QSelectGameModeWidget::~QSelectGameModeWidget()
 
 }
 
-void QSelectGameModeWidget::Connects()
+void QSelectGameModeWidget::connects()
 {
 #pragma warning(disable:26444)
 
@@ -27,7 +27,7 @@ void QSelectGameModeWidget::setController(std::shared_ptr<IController> controlle
     this->m_controller = controller;
 }
 
-void QSelectGameModeWidget::GenerateGeneralLayout()
+void QSelectGameModeWidget::generateGeneralLayout()
 {
     std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
 
@@ -50,6 +50,11 @@ void QSelectGameModeWidget::GenerateGeneralLayout()
     mainLayout->addWidget(advancedModePushButton, 8, Qt::AlignCenter);
 
     this->setLayout(mainLayout);
+}
+
+void QSelectGameModeWidget::updateUI()
+{
+
 }
 
 void QSelectGameModeWidget::printStuff()

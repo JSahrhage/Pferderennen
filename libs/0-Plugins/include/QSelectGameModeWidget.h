@@ -1,9 +1,6 @@
 #ifndef Q_SELECT_GAME_MODE_WIDGET_H
 #define Q_SELECT_GAME_MODE_WIDGET_H
 
-// C++ Library Includes
-#include <memory>
-
 // Qt Includes
 #include <QWidget>
 #include <QVBoxLayout>
@@ -11,15 +8,11 @@
 #include <QPushButton>
 
 // Project Includes
+#include "IQViewWidget.h"
 #include "IConfig.h"
-#include "IController.h"
 
-class QSelectGameModeWidget : public QWidget
+class QSelectGameModeWidget : public IQViewWidget
 {
-	Q_OBJECT
-
-Q_SIGNALS:
-
 public:
 // Public Functions
 	explicit QSelectGameModeWidget(std::shared_ptr<IConfig> assetConfig, QWidget* parent = nullptr);
@@ -27,11 +20,13 @@ public:
 
 	void setController(std::shared_ptr<IController> controller);
 
+	void updateUI();
+
 private:
 // Private Functions
-	void Connects();
+	void connects();
 
-	void GenerateGeneralLayout();
+	void generateGeneralLayout();
 
 	void printStuff();
 

@@ -1,11 +1,20 @@
 set(HEADERS
 	${CMAKE_CURRENT_LIST_DIR}/include/AssetConfig.h
 	${CMAKE_CURRENT_LIST_DIR}/include/IConfig.h
+	${CMAKE_CURRENT_LIST_DIR}/include/IQViewWidget.h
+	${CMAKE_CURRENT_LIST_DIR}/include/QDistributeSipsWidget.h
+	${CMAKE_CURRENT_LIST_DIR}/include/QEnterPlayerWidget.h
+	${CMAKE_CURRENT_LIST_DIR}/include/QGameWidget.h
+	${CMAKE_CURRENT_LIST_DIR}/include/QPlaceBetsWidget.h	
 	${CMAKE_CURRENT_LIST_DIR}/include/QSelectGameModeWidget.h
 	${CMAKE_CURRENT_LIST_DIR}/include/QView.h
 )
 
 set(CPPS
+	${CMAKE_CURRENT_LIST_DIR}/source/QDistributeSipsWidget.cpp
+	${CMAKE_CURRENT_LIST_DIR}/source/QEnterPlayerWidget.cpp
+	${CMAKE_CURRENT_LIST_DIR}/source/QGameWidget.cpp
+	${CMAKE_CURRENT_LIST_DIR}/source/QPlaceBetsWidget.cpp
 	${CMAKE_CURRENT_LIST_DIR}/source/QSelectGameModeWidget.cpp
 	${CMAKE_CURRENT_LIST_DIR}/source/QView.cpp
 )
