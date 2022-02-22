@@ -27,9 +27,33 @@ void QGameWidget::setController(std::shared_ptr<IController> controller)
 void QGameWidget::generateGeneralLayout()
 {
     std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
+
 }
 
 void QGameWidget::updateUI()
+{
+    updatePlayground();
+    updateDeck();
+    updateHurdles();
+    updateDrawButton();
+}
+
+void QGameWidget::updatePlayground()
+{
+
+}
+
+void QGameWidget::updateDeck()
+{
+
+}
+
+void QGameWidget::updateHurdles()
+{
+
+}
+
+void QGameWidget::updateDrawButton()
 {
 
 }

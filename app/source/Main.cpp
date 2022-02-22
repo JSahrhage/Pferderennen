@@ -24,9 +24,8 @@ int main(int argc, char *argv[])
 
     view->setWidgetController(controller);
 
-    model->setGameView(Game::View::SelectGameMode);
     controller->onLoad();
 
     view->getMainWindow()->show();
     return application.exec();
-}<
+}

@@ -29,6 +29,14 @@ private:
 
 	void generateGeneralLayout();
 
+	void updatePlayground();
+
+	void updateDeck();
+
+	void updateHurdles();
+
+	void updateDrawButton();
+
 	// Variables
 	std::shared_ptr<Model> m_model = nullptr;
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;

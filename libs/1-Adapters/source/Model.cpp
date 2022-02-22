@@ -3,12 +3,6 @@
 // Project Includes
 #include "Model.h"
 
-Model::Model(const Game::View& gameView, const Game::Mode& gameMode)
-{
-    this->setGameView(gameView);
-    this->setGameMode(gameMode);
-}
-
 void Model::setGameView(const Game::View& gameView)
 {
     this->m_gameView = gameView;
@@ -27,4 +21,44 @@ void Model::setGameMode(const Game::Mode& gameMode)
 Game::Mode Model::getGameMode()
 {
     return this->m_gameMode;
+}
+
+void Model::setClubsPosition(const short& clubsPosition)
+{
+
+}
+
+short Model::getClubsPosition()
+{
+
+}
+
+void Model::setDiamondsPosition(const short& clubsPosition)
+{
+
+}
+
+short Model::getDiamondsPosition()
+{
+
+}
+
+void Model::setHeartsPosition(const short& clubsPosition)
+{
+
+}
+
+short Model::getHeartsPosition()
+{
+
+}
+
+void Model::setSpadesPosition(const short& clubsPosition)
+{
+
+}
+
+short Model::getSpadesPosition()
+{
+
 }
