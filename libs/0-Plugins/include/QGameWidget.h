@@ -3,6 +3,9 @@
 
 // Qt Includes
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 
 // Project Includes
 #include "IQViewWidget.h"
@@ -32,6 +35,24 @@ private:
 	std::shared_ptr<IController> m_controller = nullptr;
 
 	// Widgets
+	QWidget* playground = new QWidget;
+	QVBoxLayout* playgroundLayout = new QVBoxLayout;
+	QWidget* deck = new QWidget;
+	QVBoxLayout* deckLayout = new QVBoxLayout;
+	QWidget* hiddenCards = new QWidget;
+	QHBoxLayout* hiddenCardsLayout = new QHBoxLayout;
+	QPushButton* proceedPushButton = new QPushButton;
+	QPushButton* drawCardPushButton = new QPushButton;
+	QLabel* closedCardLabel = new QLabel;
+	QLabel* openedCardLabel = new QLabel;
+	QWidget* diamondWidget = new QWidget;
+	QHBoxLayout* diamondLayout = new QHBoxLayout;
+	QWidget* heartWidget = new QWidget;
+	QHBoxLayout* heartLayout = new QHBoxLayout;
+	QWidget* spadeWidget = new QWidget;
+	QHBoxLayout* spadeLayout = new QHBoxLayout;
+	QWidget* clubWidget = new QWidget;
+	QHBoxLayout* clubLayout = new QHBoxLayout;
 };
 
 #endif // Q_GAME_WIDGET_H

@@ -32,24 +32,24 @@ void QSelectGameModeWidget::generateGeneralLayout()
     std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
 
     QPixmap logoLabelPixmap(QString::fromStdString(pathToAssets + "/chooseGameModeAssets/Logo.png"));
-    logoLabelPixmap = logoLabelPixmap.scaled(logoLabel->size());
-    logoLabel->setPixmap(logoLabelPixmap);
+    logoLabelPixmap = logoLabelPixmap.scaled(m_logoLabel->size());
+    m_logoLabel->setPixmap(logoLabelPixmap);
 
     QPixmap classicModePushButtonPixmap(QString::fromStdString(pathToAssets + "/chooseGameModeAssets/ClassicModeButtonIcon.png"));
     QIcon classicModePushButtonIcon(classicModePushButtonPixmap);
-    classicModePushButton->setIcon(classicModePushButtonIcon);
-    classicModePushButton->setIconSize(QSize(320, 160));
+    m_classicModePushButton->setIcon(classicModePushButtonIcon);
+    m_classicModePushButton->setIconSize(QSize(320, 160));
 
     QPixmap advancedModePushButtonPixmap(QString::fromStdString(pathToAssets + "/chooseGameModeAssets/AdvancedModeButtonIcon.png"));
     QIcon advancedModePushButtonIcon(advancedModePushButtonPixmap);
-    advancedModePushButton->setIcon(advancedModePushButtonIcon);
-    advancedModePushButton->setIconSize(QSize(320, 160));
+    m_advancedModePushButton->setIcon(advancedModePushButtonIcon);
+    m_advancedModePushButton->setIconSize(QSize(320, 160));
 
-    mainLayout->addWidget(logoLabel, 12, Qt::AlignCenter);
-    mainLayout->addWidget(classicModePushButton, 8, Qt::AlignCenter);
-    mainLayout->addWidget(advancedModePushButton, 8, Qt::AlignCenter);
+    m_mainLayout->addWidget(m_logoLabel, 12, Qt::AlignCenter);
+    m_mainLayout->addWidget(m_classicModePushButton, 8, Qt::AlignCenter);
+    m_mainLayout->addWidget(m_advancedModePushButton, 8, Qt::AlignCenter);
 
-    this->setLayout(mainLayout);
+    this->setLayout(m_mainLayout);
 }
 
 void QSelectGameModeWidget::updateUI()

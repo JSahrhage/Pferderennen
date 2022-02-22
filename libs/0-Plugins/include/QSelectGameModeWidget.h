@@ -35,12 +35,11 @@ private:
 	std::shared_ptr<IController> m_controller = nullptr;
 
 // Widgets
-	QVBoxLayout* mainLayout = new QVBoxLayout;
-
-	QPushButton* loadSavedGamePushButton = new QPushButton;
-	QLabel* logoLabel = new QLabel;
-	QPushButton* classicModePushButton = new QPushButton;
-	QPushButton* advancedModePushButton = new QPushButton;
+	QPushButton* m_loadSavedGamePushButton = new QPushButton;
+	QLabel* m_logoLabel = new QLabel;
+	QPushButton* m_classicModePushButton = new QPushButton;
+	QPushButton* m_advancedModePushButton = new QPushButton;
+	QVBoxLayout* m_mainLayout = new QVBoxLayout;
 };
 
 #endif // Q_SELECT_GAME_MODE_WIDGET_H

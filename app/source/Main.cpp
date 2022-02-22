@@ -29,4 +29,4 @@ int main(int argc, char *argv[])
 
     view->getMainWindow()->show();
     return application.exec();
-}
+}<

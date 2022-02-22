@@ -3,6 +3,14 @@
 
 // Qt Includes
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLabel>
+#include <QPixmap>
+#include <QIcon>
+#include <QSize>
+#include <QTextEdit>
+#include <QColor>
 
 // Project Includes
 #include "IQViewWidget.h"
@@ -32,6 +40,13 @@ private:
 	std::shared_ptr<IController> m_controller = nullptr;
 
 	// Widgets
+	QLabel* m_logoLabel = new QLabel;
+	QPushButton* m_proceedPushButton = new QPushButton;
+	QWidget* m_playersWidget = new QWidget;
+	QVBoxLayout* m_playersWidgetMainLayout = new QVBoxLayout;
+	QWidget* m_playersWidgetTopWidget = new QWidget;
+	QVBoxLayout* m_playersWidgetTopWidgetLayout = new QVBoxLayout;
+	QVBoxLayout* m_mainLayout = new QVBoxLayout;
 };
 
 #endif // Q_ENTER_PLAYER_WIDGET_H
