@@ -25,9 +25,9 @@ class QView : public IView
 public:
     QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig);
 
-    void setWidgetController(std::shared_ptr<IController> controller);
+    void setController(std::shared_ptr<IController> controller) override;
 
-    void render();
+    void update() override;
 
     QMainWindow* getMainWindow() { return this->m_mainWindow; }
 

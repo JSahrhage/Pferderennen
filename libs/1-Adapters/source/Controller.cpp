@@ -18,7 +18,7 @@ Controller::Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view
 
 void Controller::onLoad()
 {
-    this->m_view->render();
+    this->m_view->update();
 }
 
 void Controller::printStuff()

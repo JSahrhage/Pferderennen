@@ -28,11 +28,11 @@ void QEnterPlayerWidget::generateGeneralLayout()
 {
     std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
 
-    QPixmap logoLabelPixmap(QString::fromStdString(pathToDependencies + "/enterPlayerAssets/Logo.png"));
+    QPixmap logoLabelPixmap(QString::fromStdString(pathToAssets + "/enterPlayerAssets/Logo.png"));
     logoLabelPixmap = logoLabelPixmap.scaled(m_logoLabel->size());
     m_logoLabel->setPixmap(logoLabelPixmap);
 
-    QPixmap proceedPushButtonPixmap(QString::fromStdString(pathToDependencies + "/enterPlayerAssets/ProceedButtonIcon.png"));
+    QPixmap proceedPushButtonPixmap(QString::fromStdString(pathToAssets + "/enterPlayerAssets/ProceedButtonIcon.png"));
     QIcon proceedPushButtonIcon(proceedPushButtonPixmap);
     m_proceedPushButton->setIcon(proceedPushButtonIcon);
     m_proceedPushButton->setIconSize(QSize(256, 48));
@@ -45,7 +45,6 @@ void QEnterPlayerWidget::generateGeneralLayout()
     m_playersWidget->setFixedSize(QSize(1024, 448));
     m_playersWidget->setLayout(m_playersWidgetMainLayout);
 
-    m_mainLayout->addWidget(m_statisticsPushButton, 1, Qt::AlignRight);
     m_mainLayout->addWidget(m_logoLabel, 12, Qt::AlignCenter);
     m_mainLayout->addWidget(m_playersWidget, 14, Qt::AlignCenter);
 

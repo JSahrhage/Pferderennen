@@ -22,7 +22,8 @@ int main(int argc, char *argv[])
     std::shared_ptr<QView> view = std::make_shared<QView>(QView(model, assetConfig));
     std::shared_ptr<Controller> controller = std::make_shared<Controller>(Controller(model, view));
 
-    view->setWidgetController(controller);
+    model->attach(view);
+    view->setController(controller);
 
     controller->onLoad();
 

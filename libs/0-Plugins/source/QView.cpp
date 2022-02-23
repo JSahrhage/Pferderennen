@@ -23,7 +23,7 @@ QView::QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig)
     this->m_mainWindow->showMaximized();
 }
 
-void QView::setWidgetController(std::shared_ptr<IController> controller)
+void QView::setController(std::shared_ptr<IController> controller)
 {
     for (auto const& [view, widget] : this->m_viewWidgets)
     {
@@ -31,7 +31,7 @@ void QView::setWidgetController(std::shared_ptr<IController> controller)
     }
 }
 
-void QView::render()
+void QView::update()
 {
     for (auto const& [view, widget] : this->m_viewWidgets)
     {

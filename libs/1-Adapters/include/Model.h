@@ -6,13 +6,19 @@
 #include <map>
 
 // Project Includes
+#include "IModel.h"
 #include "GameView.h"
 #include "GameMode.h"
 #include "CardDeck.h"
 #include "Card.h"
 
-class Model {
+class Model : public IModel
+{
 public:
+    void attach(std::shared_ptr<IObserver> observer) override { this->m_views.push_back(observer); }
+    void detach(std::shared_ptr<IObserver> observer) override { this->m_views.erase(std::remove(this->m_views.begin(), this->m_views.end(), observer)); }
+    void notify() override { for (std::shared_ptr<IObserver> observer : this->m_views) { observer->update(); } }
+
     void setGameView(const Game::View& gameView) { this->m_gameView = gameView; }
     Game::View getGameView() { return this->m_gameView; }
 
@@ -31,10 +37,12 @@ public:
     void setSpadesPosition(const short& spadesPosition) { this->m_spadesPosition = spadesPosition; }
     short getSpadesPosition() { return this->m_spadesPosition; }
 
-    void setDeck(const Card::Deck& deck) { this->m_deck = deck; }
-    Card::Deck getDeck() { return this->m_deck; }
+    // void setDeck(const Card::Deck& deck) { this->m_deck = deck; }
+    // Card::Deck getDeck() { return this->m_deck; }
 
 private:
+    // Subject
+    std::vector<std::shared_ptr<IObserver>> m_views;
     // View
     Game::View m_gameView = Game::View::SelectGameMode;
     // SelectGameMode
