@@ -18,6 +18,7 @@ namespace Card
         void print();
         void shuffle();
         Card draw();
+
     private:
         void fillDeck();
         void addPips(const Suit& suit);
