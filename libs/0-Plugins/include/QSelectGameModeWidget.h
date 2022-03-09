@@ -28,7 +28,9 @@ private:
 
 	void generateGeneralLayout();
 
-	void printStuff();
+	void classicModePushButtonClicked();
+
+	void advancedModePushButtonClicked();
 
 // Variables
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;

@@ -1,27 +1,42 @@
-// C++ Library Includes
-#include <iostream>
-
 // Project Includes
 #include "Controller.h"
+#include "Player.h"
 
 Controller::Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view) : m_model(model), m_view(view)
 {
-    if (model == nullptr)
-    {
-        throw std::invalid_argument("model must not be null");
-    }
-    if (view == nullptr)
-    {
-        throw std::invalid_argument("view must not be null");
-    }
+
 }
 
 void Controller::onLoad()
 {
-    this->m_view->update();
+    this->m_model->notify();
 }
 
-void Controller::printStuff()
+void Controller::classicModePushButtonClicked()
 {
-    std::cout << "Stuff" << std::endl;
+    this->m_model->setGameMode(Game::Mode::Classic);
+    this->m_model->setGameView(Game::View::EnterPlayer);
+}
+
+void Controller::advancedModePushButtonClicked()
+{
+    this->m_model->setGameMode(Game::Mode::Advanced);
+    this->m_model->setGameView(Game::View::EnterPlayer);
+}
+
+void Controller::enterPlayerProceedButtonClicked(const std::vector<std::string>& players)
+{
+    std::vector<Player> castedPlayer;
+    for (const auto& player : players)
+    {
+        if (player.empty())
+        {
+            continue;
+        }
+
+        castedPlayer.push_back(Player(player));
+    }
+
+    this->m_model->setPlayer(castedPlayer);
+    this->m_model->setGameView(Game::View::PlaceBets);
 }

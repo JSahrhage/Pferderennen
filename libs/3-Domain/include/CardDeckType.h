@@ -18,8 +18,8 @@ namespace Card
         const std::vector<Pip>& getPips() const { return this->m_pips; }
 
     private:
-        const std::vector<Suit> m_suits;
-        const std::vector<Pip> m_pips;
+        std::vector<Suit> m_suits;
+        std::vector<Pip> m_pips;
     };
 }
 

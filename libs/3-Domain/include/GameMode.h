@@ -3,7 +3,7 @@
 
 namespace Game
 {
-    enum class Mode { Normal, Advanced };
+    enum class Mode { Classic, Advanced };
 }
 
 #endif // GAME_MODE_H

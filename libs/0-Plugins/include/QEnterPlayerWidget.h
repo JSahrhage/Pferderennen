@@ -34,10 +34,15 @@ private:
 
 	void generateGeneralLayout();
 
+	void addPlayerRows();
+
+	void proceedButtonClicked();
+
 	// Variables
 	std::shared_ptr<Model> m_model = nullptr;
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;
 	std::shared_ptr<IController> m_controller = nullptr;
+	std::vector<QTextEdit*> m_textEdits;
 
 	// Widgets
 	QLabel* m_logoLabel = new QLabel;

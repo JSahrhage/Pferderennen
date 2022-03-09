@@ -11,6 +11,7 @@
 #include "GameMode.h"
 #include "CardDeck.h"
 #include "Card.h"
+#include "Player.h"
 
 class Model : public IModel
 {
@@ -19,26 +20,31 @@ public:
     void detach(std::shared_ptr<IObserver> observer) override { this->m_views.erase(std::remove(this->m_views.begin(), this->m_views.end(), observer)); }
     void notify() override { for (std::shared_ptr<IObserver> observer : this->m_views) { observer->update(); } }
 
-    void setGameView(const Game::View& gameView) { this->m_gameView = gameView; }
+    void setGameView(const Game::View& gameView) { this->m_gameView = gameView; this->notify(); }
     Game::View getGameView() { return this->m_gameView; }
 
     void setGameMode(const Game::Mode& gameMode) { this->m_gameMode = gameMode; }
     Game::Mode getGameMode() { return this->m_gameMode; }
 
-    void setClubsPosition(const short& clubsPosition) { this->m_clubsPosition = clubsPosition; }
+    void setClubsPosition(const short& clubsPosition) { this->m_clubsPosition = clubsPosition; this->notify(); }
     short getClubsPosition() { return this->m_clubsPosition; }
         
-    void setDiamondsPosition(const short& diamondsPosition) { this->m_diamondsPosition = diamondsPosition; }
+    void setDiamondsPosition(const short& diamondsPosition) { this->m_diamondsPosition = diamondsPosition; this->notify(); }
     short getDiamondsPosition() { return this->m_diamondsPosition; }
 
-    void setHeartsPosition(const short& heartsPosition) { this->m_heartsPosition = heartsPosition; }
+    void setHeartsPosition(const short& heartsPosition) { this->m_heartsPosition = heartsPosition; this->notify(); }
     short getHeartsPosition() { return this->m_heartsPosition; }
 
-    void setSpadesPosition(const short& spadesPosition) { this->m_spadesPosition = spadesPosition; }
+    void setSpadesPosition(const short& spadesPosition) { this->m_spadesPosition = spadesPosition; this->notify(); }
     short getSpadesPosition() { return this->m_spadesPosition; }
 
-    // void setDeck(const Card::Deck& deck) { this->m_deck = deck; }
-    // Card::Deck getDeck() { return this->m_deck; }
+    void setDeck(const Card::Deck& deck) { this->m_deck = deck; }
+    Card::Deck getDeck() { return this->m_deck; }
+
+    void setPlayer(const std::vector<Player>& player) { this->m_player = player; }
+    void addPlayer(const Player& player) { this->m_player.push_back(player); }
+    void deletePlayer(const Player& player) { this->m_player.erase(std::remove(this->m_player.begin(), this->m_player.end(), player)); }
+    std::vector<Player> getPlayer() { return this->m_player; }
 
 private:
     // Subject
@@ -46,8 +52,9 @@ private:
     // View
     Game::View m_gameView = Game::View::SelectGameMode;
     // SelectGameMode
-    Game::Mode m_gameMode = Game::Mode::Normal;
+    Game::Mode m_gameMode = Game::Mode::Classic;
     // EnterPlayer
+    std::vector<Player> m_player;
     // PlaceBets
     // Game
     short m_clubsPosition = 0;

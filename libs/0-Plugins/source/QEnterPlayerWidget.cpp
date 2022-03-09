@@ -15,8 +15,7 @@ QEnterPlayerWidget::~QEnterPlayerWidget()
 
 void QEnterPlayerWidget::connects()
 {
-#pragma warning(disable:26444)
-
+    connect(this->m_proceedPushButton, &QPushButton::clicked, this, &QEnterPlayerWidget::proceedButtonClicked);
 }
 
 void QEnterPlayerWidget::setController(std::shared_ptr<IController> controller)
@@ -49,9 +48,36 @@ void QEnterPlayerWidget::generateGeneralLayout()
     m_mainLayout->addWidget(m_playersWidget, 14, Qt::AlignCenter);
 
     this->setLayout(m_mainLayout);
+
+    addPlayerRows();
 }
 
 void QEnterPlayerWidget::updateUI()
 {
 
+}
+
+void QEnterPlayerWidget::addPlayerRows()
+{
+    for (int i = 0; i < 12; i++)
+    {
+        QTextEdit* textEdit = new QTextEdit;
+        textEdit->setAlignment(Qt::AlignCenter);
+        textEdit->setTextColor(QColor("white"));
+
+        m_playersWidgetTopWidgetLayout->addWidget(textEdit, Qt::AlignTop);
+
+        m_textEdits.push_back(textEdit);
+    }
+}
+
+void QEnterPlayerWidget::proceedButtonClicked()
+{
+    std::vector<std::string> player;
+    for (const auto& element : m_textEdits)
+    {
+        player.push_back(element->toPlainText().toStdString());
+    }
+
+    m_controller->enterPlayerProceedButtonClicked(player);
 }

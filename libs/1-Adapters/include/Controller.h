@@ -14,7 +14,13 @@ class Controller : public IController
 public:
     Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view);
     void onLoad();
-    void printStuff();
+
+    void classicModePushButtonClicked();
+
+    void advancedModePushButtonClicked();
+
+    void enterPlayerProceedButtonClicked(const std::vector<std::string>& player);
+
 private:
     std::shared_ptr<Model> m_model = nullptr;
     std::shared_ptr<IView> m_view = nullptr;

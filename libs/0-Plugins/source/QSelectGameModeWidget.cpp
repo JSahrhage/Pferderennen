@@ -18,8 +18,8 @@ QSelectGameModeWidget::~QSelectGameModeWidget()
 
 void QSelectGameModeWidget::connects()
 {
-#pragma warning(disable:26444)
-
+    connect(this->m_classicModePushButton, &QPushButton::clicked, this, &QSelectGameModeWidget::classicModePushButtonClicked);
+    connect(this->m_advancedModePushButton, &QPushButton::clicked, this, &QSelectGameModeWidget::advancedModePushButtonClicked);
 }
 
 void QSelectGameModeWidget::setController(std::shared_ptr<IController> controller)
@@ -57,7 +57,12 @@ void QSelectGameModeWidget::updateUI()
 
 }
 
-void QSelectGameModeWidget::printStuff()
+void QSelectGameModeWidget::classicModePushButtonClicked()
 {
-    m_controller->printStuff();
+    m_controller->classicModePushButtonClicked();
+}
+
+void QSelectGameModeWidget::advancedModePushButtonClicked()
+{
+    m_controller->advancedModePushButtonClicked();
 }
