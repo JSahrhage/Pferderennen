@@ -38,10 +38,19 @@ private:
 
 	void generateGeneralLayout();
 
+	void addBetRows();
+
+	void chooseGameModeButtonClicked();
+
+	void enterPlayerButtonClicked();
+
+	void proceedButtonClicked();
+
 	// Variables
 	std::shared_ptr<Model> m_model = nullptr;
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;
 	std::shared_ptr<IController> m_controller = nullptr;
+	std::vector<std::tuple<std::string, QComboBox*, QSpinBox*>> m_betRows;
 
 	// Widgets
 	QVBoxLayout* m_mainLayout = new QVBoxLayout;

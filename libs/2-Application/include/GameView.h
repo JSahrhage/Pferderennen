@@ -3,7 +3,7 @@
 
 namespace Game
 {
-    enum class View { SelectGameMode, EnterPlayer, PlaceBets, Game, DistributeSips };
+    enum class View { ChooseGameMode, EnterPlayer, PlaceBets, Game, DistributeSips };
 }
 
 #endif // GAME_VIEW_H

@@ -1,5 +1,5 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_h
+#ifndef ASSET_CONFIG_H
+#define ASSET_CONFIG_H
 
 // C++ Library Includes
 #include <string>
@@ -18,4 +18,4 @@ private:
     std::string m_pathToAssets;
 };
 
-#endif // CONTROLLER_H
+#endif // ASSET_CONFIG_H

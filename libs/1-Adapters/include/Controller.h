@@ -21,6 +21,16 @@ public:
 
     void enterPlayerProceedButtonClicked(const std::vector<std::string>& player);
 
+    void placeBetsChooseGameModeButtonClicked();
+
+    void placeBetsEnterPlayerButtonClicked();
+
+    void placeBetsProceedButtonClicked(const std::vector<std::tuple<std::string, std::string, int>>& bets);
+
+    void gameDrawButtonClicked();
+
+    void gameProceedButtonClicked();
+
 private:
     std::shared_ptr<Model> m_model = nullptr;
     std::shared_ptr<IView> m_view = nullptr;

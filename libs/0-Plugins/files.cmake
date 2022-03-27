@@ -8,6 +8,7 @@ set(HEADERS
 	${CMAKE_CURRENT_LIST_DIR}/include/QPlaceBetsWidget.h	
 	${CMAKE_CURRENT_LIST_DIR}/include/QSelectGameModeWidget.h
 	${CMAKE_CURRENT_LIST_DIR}/include/QView.h
+	${CMAKE_CURRENT_LIST_DIR}/include/SizeConfig.h
 )
 
 set(CPPS

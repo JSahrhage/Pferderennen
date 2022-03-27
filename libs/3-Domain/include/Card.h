@@ -1,6 +1,9 @@
 #ifndef CARD_H
 #define CARD_H
 
+// C++ Library Includes
+#include <string>
+
 // Project Includes
 #include "CardIdentifier.h"
 
@@ -13,7 +16,7 @@ namespace Card
     public:
         Card(const Identifier& identifier) : m_identifier(identifier) {}
 
-        void print() const;
+        std::string getAcronym();
     private:
         Identifier m_identifier;
     };

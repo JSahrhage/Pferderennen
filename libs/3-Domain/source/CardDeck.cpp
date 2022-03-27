@@ -35,14 +35,6 @@ namespace Card
         return drawnCard;
     }
 
-    void Deck::print()
-    {
-        for (const auto& card : m_deck)
-        {
-            card.print();
-        }
-    }
-
     void Deck::addPips(const Suit& suit)
     {
         for (const auto& pip : m_deckType.getPips())

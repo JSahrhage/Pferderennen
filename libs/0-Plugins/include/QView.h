@@ -7,6 +7,7 @@
 
 // Qt Includes
 #include <QMainWindow>
+#include <QStackedWidget>
 
 // Project Includes
 #include "IView.h"
@@ -23,7 +24,7 @@
 class QView : public IView
 {
 public:
-    QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig);
+    QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig, std::shared_ptr<IConfig> sizeConfig);
 
     void setController(std::shared_ptr<IController> controller) override;
 
@@ -34,6 +35,7 @@ public:
 private:
     std::shared_ptr<Model> m_model = nullptr;
     QMainWindow* m_mainWindow = new QMainWindow();
+    QStackedWidget* m_centralStackedWidget = new QStackedWidget();
     std::map<Game::View, IQViewWidget*> m_viewWidgets;
     QSelectGameModeWidget* m_selectGameModeWidget = nullptr;
     QEnterPlayerWidget* m_enterPlayerWidget = nullptr;

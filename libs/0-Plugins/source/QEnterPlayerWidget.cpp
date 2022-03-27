@@ -49,12 +49,12 @@ void QEnterPlayerWidget::generateGeneralLayout()
 
     this->setLayout(m_mainLayout);
 
-    addPlayerRows();
+    this->addPlayerRows();
 }
 
 void QEnterPlayerWidget::updateUI()
 {
-
+    return;
 }
 
 void QEnterPlayerWidget::addPlayerRows()
