@@ -28,6 +28,11 @@ namespace Card
         std::shuffle(std::begin(m_deck), std::end(m_deck), defaultRandomEngine);
     }
 
+    int Deck::size()
+    {
+        return m_deck.size();
+    }
+
     Card Deck::draw()
     {
         auto drawnCard = m_deck.at(0);

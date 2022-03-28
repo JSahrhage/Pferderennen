@@ -61,10 +61,13 @@ public:
                                            short spadePosition,
                                            short clubPosition,
                                            Card::Deck deck,
+                                           Card::Card lastDrawnCard,
                                            std::vector<std::pair<Card::Card, bool>> hurdles);
 
 private:
     DrawCardUseCase() {}
+
+    static bool dragCard(short& cardPosition, const short& steps);
 };
 
 #endif // DRAW_CARD_USE_CASE_H

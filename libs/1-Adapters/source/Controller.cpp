@@ -95,6 +95,7 @@ void Controller::gameDrawButtonClicked()
     short spadePosition = this->m_model->getSpadePosition();
     short clubPosition = this->m_model->getClubPosition();
     Card::Deck deck = this->m_model->getDeck();
+    Card::Card lastDrawnCard = this->m_model->getLastDrawnCard();
     std::vector<std::pair<Card::Card, bool>> hurdles = this->m_model->getHurdles();
 
     DrawCardUseCaseResponse drawCardUseCaseResponse = DrawCardUseCase::execute(diamondPosition,
@@ -102,6 +103,7 @@ void Controller::gameDrawButtonClicked()
                                                                                spadePosition,
                                                                                clubPosition,
                                                                                deck,
+                                                                               lastDrawnCard,
                                                                                hurdles);
 
     this->m_model->setFirstCardDrawn(true);

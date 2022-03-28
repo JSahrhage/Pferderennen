@@ -17,6 +17,7 @@ namespace Card
 
         void print();
         void shuffle();
+        int size();
         Card draw();
 
     private:

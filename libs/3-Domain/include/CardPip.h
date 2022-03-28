@@ -32,6 +32,14 @@ namespace Card
                                               Pip::Jack,
                                               Pip::Queen,
                                               Pip::King };
+
+        const std::vector<Pip> PiquetPipsWithoutAces = { Pip::Seven,
+                                                         Pip::Eight,
+                                                         Pip::Nine,
+                                                         Pip::Ten,
+                                                         Pip::Jack,
+                                                         Pip::Queen,
+                                                         Pip::King };
     }
 }
 
