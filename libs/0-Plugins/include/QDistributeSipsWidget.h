@@ -36,6 +36,8 @@ private:
 
 	void generateGeneralLayout();
 
+	void proceedButtonClicked();
+
 	// Variables
 	std::shared_ptr<Model> m_model = nullptr;
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;

@@ -77,6 +77,8 @@ void QPlaceBetsWidget::updateUI()
 
 void QPlaceBetsWidget::addBetRows()
 {
+    this->m_betRows.clear();
+
     if (m_playersWidgetTopWidgetLayout != nullptr)
     {
         QLayoutItem* item;

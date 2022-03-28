@@ -316,18 +316,28 @@ void QGameWidget::updateHurdles()
 {
     std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
 
+    QMatrix rm;
+    rm.rotate(90);
+
     short index = 0;
     for (auto& [card, isRevealed] : this->m_model->getHurdles())
     {
         if (isRevealed)
         {
-            QMatrix rm;
-            rm.rotate(90);
-            QImage hurdleImage(QString::fromStdString(pathToAssets + "/cards/" + card.getAcronym() + ".png"));
-            QPixmap hurdlePixmap = QPixmap::fromImage(hurdleImage);
+            QImage reveleadHurdleImage(QString::fromStdString(pathToAssets + "/cards/" + card.getAcronym() + ".png"));
+            QPixmap reveleadHurdlePixmap = QPixmap::fromImage(reveleadHurdleImage);
 
-            hurdlePixmap = hurdlePixmap.transformed(rm);
-            this->m_hurdleLabels.at(index)->setPixmap(hurdlePixmap);
+            reveleadHurdlePixmap = reveleadHurdlePixmap.transformed(rm);
+            this->m_hurdleLabels.at(index)->setPixmap(reveleadHurdlePixmap);
+            this->m_hurdleLabels.at(index)->setScaledContents(true);
+        }
+        else
+        {
+            QImage coveredhurdleImage(QString::fromStdString(pathToAssets + "/cards/0.png"));
+            QPixmap covereredhurdlePixmap = QPixmap::fromImage(coveredhurdleImage);
+
+            covereredhurdlePixmap = covereredhurdlePixmap.transformed(rm);
+            this->m_hurdleLabels.at(index)->setPixmap(covereredhurdlePixmap);
             this->m_hurdleLabels.at(index)->setScaledContents(true);
         }
         index++;

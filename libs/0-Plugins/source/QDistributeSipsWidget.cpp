@@ -16,7 +16,7 @@ QDistributeSipsWidget::~QDistributeSipsWidget()
 void QDistributeSipsWidget::connects()
 {
 #pragma warning(disable:26444)
-
+    connect(this->m_proceedPushButton, &QPushButton::clicked, this, &QDistributeSipsWidget::proceedButtonClicked);
 }
 
 void QDistributeSipsWidget::setController(std::shared_ptr<IController> controller)
@@ -54,4 +54,9 @@ void QDistributeSipsWidget::generateGeneralLayout()
 void QDistributeSipsWidget::updateUI()
 {
 
+}
+
+void QDistributeSipsWidget::proceedButtonClicked()
+{
+    this->m_controller->distributeSipsProceedButtonClicked();
 }

@@ -78,12 +78,16 @@ void Controller::placeBetsProceedButtonClicked(const std::vector<std::tuple<std:
 
     InitializeGameUseCaseResponse initializeGameUseCaseResponse = InitializeGameUseCase::execute();
 
+    this->m_model->setFirstCardDrawn(false);
+
     this->m_model->setDiamondPosition(0);
     this->m_model->setHeartPosition(0);
     this->m_model->setSpadePosition(0);
     this->m_model->setClubPosition(0);
     this->m_model->setDeck(initializeGameUseCaseResponse.getDeck());
     this->m_model->setHurdles(initializeGameUseCaseResponse.getHurdles());
+    this->m_model->setGameDrawButtonActive(true);
+    this->m_model->setGameProceedButtonActive(false);
 
     this->m_model->setGameView(Game::View::Game);
 }
@@ -124,4 +128,9 @@ void Controller::gameDrawButtonClicked()
 void Controller::gameProceedButtonClicked()
 {
     this->m_model->setGameView(Game::View::DistributeSips);
+}
+
+void Controller::distributeSipsProceedButtonClicked()
+{
+    this->m_model->setGameView(Game::View::PlaceBets);
 }

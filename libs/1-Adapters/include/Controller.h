@@ -31,6 +31,8 @@ public:
 
     void gameProceedButtonClicked();
 
+    void distributeSipsProceedButtonClicked();
+
 private:
     std::shared_ptr<Model> m_model = nullptr;
     std::shared_ptr<IView> m_view = nullptr;

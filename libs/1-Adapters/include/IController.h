@@ -19,6 +19,7 @@ public:
     virtual void placeBetsProceedButtonClicked(const std::vector<std::tuple<std::string, std::string, int>>& bets) = 0;
     virtual void gameDrawButtonClicked() = 0;
     virtual void gameProceedButtonClicked() = 0;
+    virtual void distributeSipsProceedButtonClicked() = 0;
 };
 
 #endif // I_CONTROLLER_H
