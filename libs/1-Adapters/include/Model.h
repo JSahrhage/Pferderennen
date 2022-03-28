@@ -27,17 +27,17 @@ public:
     void setGameMode(const Game::Mode& gameMode) { this->m_gameMode = gameMode; }
     Game::Mode getGameMode() { return this->m_gameMode; }
 
-    void setDiamondPosition(const short& diamondsPosition) { this->m_diamondsPosition = diamondsPosition; this->notify(); }
-    short getDiamondPosition() { return this->m_diamondsPosition; }
+    void setDiamondPosition(const short& diamondsPosition) { this->m_diamondPosition = diamondsPosition; }
+    short getDiamondPosition() { return this->m_diamondPosition; }
 
-    void setHeartPosition(const short& heartsPosition) { this->m_heartsPosition = heartsPosition; this->notify(); }
-    short getHeartPosition() { return this->m_heartsPosition; }
+    void setHeartPosition(const short& heartsPosition) { this->m_heartPosition = heartsPosition; }
+    short getHeartPosition() { return this->m_heartPosition; }
 
-    void setSpadePosition(const short& spadesPosition) { this->m_spadesPosition = spadesPosition; this->notify(); }
-    short getSpadePosition() { return this->m_spadesPosition; }
+    void setSpadePosition(const short& spadesPosition) { this->m_spadePosition = spadesPosition; }
+    short getSpadePosition() { return this->m_spadePosition; }
 
-    void setClubPosition(const short& clubsPosition) { this->m_clubsPosition = clubsPosition; this->notify(); }
-    short getClubPosition() { return this->m_clubsPosition; }
+    void setClubPosition(const short& clubsPosition) { this->m_clubPosition = clubsPosition; }
+    short getClubPosition() { return this->m_clubPosition; }
 
     void setDeck(const Card::Deck& deck) { this->m_deck = deck; }
     Card::Deck getDeck() { return this->m_deck; }
@@ -60,6 +60,9 @@ public:
     void setGameProceedButtonActive(const bool& gameProceedButtonActive) { this->m_gameProceedButtonActive = gameProceedButtonActive; }
     bool getGameProceedButtonActive() { return this->m_gameProceedButtonActive; }
 
+    void setHurdles(const std::vector<std::pair<Card::Card, bool>>& hurdles) { this->m_hurdles = hurdles; }
+    std::vector<std::pair<Card::Card, bool>> getHurdles() { return this->m_hurdles; }
+
 private:
     // Subject
     std::vector<std::shared_ptr<IObserver>> m_views;
@@ -72,14 +75,14 @@ private:
     // PlaceBets
     std::vector<Bet> m_openBets;
     // Game
-    short m_diamondsPosition = 0;
-    short m_heartsPosition = 0;
-    short m_spadesPosition = 0;
-    short m_clubsPosition = 0;
+    short m_diamondPosition = 0;
+    short m_heartPosition = 0;
+    short m_spadePosition = 0;
+    short m_clubPosition = 0;
     Card::Deck m_deck = Card::Deck(Card::DeckType(Card::SuitConstants::AllSuits, Card::PipConstants::PiquetPips));
-    bool m_firstCardDrawn = true;
-    Card::Card m_lastDrawnCard = Card::Card(Card::Identifier(Card::Suit::Diamonds, Card::Pip::Seven));
-    std::map<Card::Card, bool> m_hurdles;
+    bool m_firstCardDrawn = false;
+    Card::Card m_lastDrawnCard = Card::Card(Card::Identifier(Card::Suit::Diamond, Card::Pip::Seven));
+    std::vector<std::pair<Card::Card, bool>> m_hurdles;
     bool m_gameDrawButtonActive = true;
     bool m_gameProceedButtonActive = false;
     // DistributeSips

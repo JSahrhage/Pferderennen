@@ -297,24 +297,41 @@ void QGameWidget::updateDeck()
 {
     std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
 
-    m_openedCardLabel->clear();
+    this->m_openedCardLabel->clear();
 
-    if (m_model->getFirstCardDrawn())
+    if (this->m_model->getFirstCardDrawn())
     {
         QMatrix rm;
         rm.rotate(90);
-        QImage openedCardImage(QString::fromStdString(pathToAssets + "/cards/" + m_model->getLastDrawnCard().getAcronym() + ".png"));
+        QImage openedCardImage(QString::fromStdString(pathToAssets + "/cards/" + this->m_model->getLastDrawnCard().getAcronym() + ".png"));
         QPixmap openedCardPixmap = QPixmap::fromImage(openedCardImage);
         openedCardPixmap = openedCardPixmap.transformed(rm);
 
-        m_openedCardLabel->setPixmap(openedCardPixmap);
-        m_openedCardLabel->setScaledContents(true);
+        this->m_openedCardLabel->setPixmap(openedCardPixmap);
+        this->m_openedCardLabel->setScaledContents(true);
     }
 }
 
 void QGameWidget::updateHurdles()
 {
-    // TODO
+    std::string pathToAssets = std::dynamic_pointer_cast<AssetConfig>(this->m_assetConfig)->getPathToAssets();
+
+    short index = 0;
+    for (auto& [card, isRevealed] : this->m_model->getHurdles())
+    {
+        if (isRevealed)
+        {
+            QMatrix rm;
+            rm.rotate(90);
+            QImage hurdleImage(QString::fromStdString(pathToAssets + "/cards/" + card.getAcronym() + ".png"));
+            QPixmap hurdlePixmap = QPixmap::fromImage(hurdleImage);
+
+            hurdlePixmap = hurdlePixmap.transformed(rm);
+            this->m_hurdleLabels.at(index)->setPixmap(hurdlePixmap);
+            this->m_hurdleLabels.at(index)->setScaledContents(true);
+        }
+        index++;
+    }
 }
 
 void QGameWidget::updateProceedButton()
@@ -325,10 +342,10 @@ void QGameWidget::updateProceedButton()
 
 void QGameWidget::drawButtonClicked()
 {
-
+    m_controller->gameDrawButtonClicked();
 }
 
 void QGameWidget::proceedButtonClicked()
 {
-
+    m_controller->gameProceedButtonClicked();
 }

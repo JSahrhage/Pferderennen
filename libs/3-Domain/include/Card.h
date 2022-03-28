@@ -17,6 +17,9 @@ namespace Card
         Card(const Identifier& identifier) : m_identifier(identifier) {}
 
         std::string getAcronym();
+        Card::Suit getSuit() { return this->m_identifier.getSuit(); }
+        Card::Pip getPip() { return this->m_identifier.getPip(); }
+
     private:
         Identifier m_identifier;
     };

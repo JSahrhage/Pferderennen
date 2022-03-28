@@ -6,11 +6,11 @@
 
 namespace Card
 {
-    enum class Suit { Clubs, Diamonds, Hearts, Spades };
+    enum class Suit { Diamond, Heart, Spade, Club };
 
     namespace SuitConstants
     {
-        const std::vector<Suit> AllSuits = { Suit::Clubs, Suit::Diamonds, Suit::Hearts, Suit::Spades };
+        const std::vector<Suit> AllSuits = { Suit::Diamond, Suit::Heart, Suit::Spade, Suit::Club };
     }
 }
 

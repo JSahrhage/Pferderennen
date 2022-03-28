@@ -1,8 +1,13 @@
 // Project Includes
+#include <iostream>
 #include "MagicEnum.h"
 #include "Controller.h"
 #include "Player.h"
 #include "Bet.h"
+
+// UseCases
+#include "InitializeGameUseCase.h"
+#include "DrawCardUseCase.h"
 
 Controller::Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view) : m_model(model), m_view(view)
 {
@@ -70,15 +75,51 @@ void Controller::placeBetsProceedButtonClicked(const std::vector<std::tuple<std:
     }
 
     this->m_model->setOpenBets(castedBets);
+
+    InitializeGameUseCaseResponse initializeGameUseCaseResponse = InitializeGameUseCase::execute();
+
+    this->m_model->setDiamondPosition(0);
+    this->m_model->setHeartPosition(0);
+    this->m_model->setSpadePosition(0);
+    this->m_model->setClubPosition(0);
+    this->m_model->setDeck(initializeGameUseCaseResponse.getDeck());
+    this->m_model->setHurdles(initializeGameUseCaseResponse.getHurdles());
+
     this->m_model->setGameView(Game::View::Game);
 }
 
 void Controller::gameDrawButtonClicked()
 {
+    short diamondPosition = this->m_model->getDiamondPosition();
+    short heartPosition = this->m_model->getHeartPosition();
+    short spadePosition = this->m_model->getSpadePosition();
+    short clubPosition = this->m_model->getClubPosition();
+    Card::Deck deck = this->m_model->getDeck();
+    std::vector<std::pair<Card::Card, bool>> hurdles = this->m_model->getHurdles();
 
+    DrawCardUseCaseResponse drawCardUseCaseResponse = DrawCardUseCase::execute(diamondPosition,
+                                                                               heartPosition,
+                                                                               spadePosition,
+                                                                               clubPosition,
+                                                                               deck,
+                                                                               hurdles);
+
+    this->m_model->setFirstCardDrawn(true);
+
+    this->m_model->setDiamondPosition(drawCardUseCaseResponse.getDiamondPosition());
+    this->m_model->setHeartPosition(drawCardUseCaseResponse.getHeartPosition());
+    this->m_model->setSpadePosition(drawCardUseCaseResponse.getSpadePosition());
+    this->m_model->setClubPosition(drawCardUseCaseResponse.getClubPosition());
+    this->m_model->setDeck(drawCardUseCaseResponse.getDeck());
+    this->m_model->setLastDrawnCard(drawCardUseCaseResponse.getDrawnCard());
+    this->m_model->setHurdles(drawCardUseCaseResponse.getHurdles());
+    this->m_model->setGameDrawButtonActive(drawCardUseCaseResponse.getGameDrawButtonActive());
+    this->m_model->setGameProceedButtonActive(drawCardUseCaseResponse.getGameProceedButtonActive());
+
+    this->m_model->notify();
 }
 
 void Controller::gameProceedButtonClicked()
 {
-
+    this->m_model->setGameView(Game::View::DistributeSips);
 }

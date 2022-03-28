@@ -82,22 +82,22 @@ namespace Card
 
         switch (this->m_identifier.getSuit())
         {
-            case Suit::Diamonds:
+            case Suit::Diamond:
             {
                 acronym.append("D");
                 break;
             }
-            case Suit::Hearts:
+            case Suit::Heart:
             {
                 acronym.append("H");
                 break;
             }
-            case Suit::Spades:
+            case Suit::Spade:
             {
                 acronym.append("S");
                 break;
             }
-            case Suit::Clubs:
+            case Suit::Club:
             {
                 acronym.append("C");
                 break;
