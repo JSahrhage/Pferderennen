@@ -1,5 +1,7 @@
-// Project Includes
+// C++ Library Includes
 #include <iostream>
+
+// Project Includes
 #include "MagicEnum.h"
 #include "Controller.h"
 #include "Player.h"
@@ -8,6 +10,7 @@
 // UseCases
 #include "InitializeGameUseCase.h"
 #include "DrawCardUseCase.h"
+#include "GetVictoriousPlayerBetsUseCase.h"
 
 Controller::Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view) : m_model(model), m_view(view)
 {
@@ -121,12 +124,21 @@ void Controller::gameDrawButtonClicked()
     this->m_model->setHurdles(drawCardUseCaseResponse.getHurdles());
     this->m_model->setGameDrawButtonActive(drawCardUseCaseResponse.getGameDrawButtonActive());
     this->m_model->setGameProceedButtonActive(drawCardUseCaseResponse.getGameProceedButtonActive());
+    this->m_model->setVictoriousSuit(drawCardUseCaseResponse.getVictoriousSuit());
 
     this->m_model->notify();
 }
 
 void Controller::gameProceedButtonClicked()
 {
+    std::vector<Bet> openBets = this->m_model->getOpenBets();
+    Card::Suit victoriousSuit = this->m_model->getVictoriousSuit();
+
+    GetVictoriousPlayerBetsUseCaseResponse getVictoriousPlayerBetsUseCaseResponse = 
+        GetVictoriousPlayerBetsUseCase::execute(openBets, victoriousSuit);
+
+    this->m_model->setVictoriousBets(getVictoriousPlayerBetsUseCaseResponse.getVictoriousBets());
+
     this->m_model->setGameView(Game::View::DistributeSips);
 }
 

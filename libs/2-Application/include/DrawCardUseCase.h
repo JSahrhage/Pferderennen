@@ -20,7 +20,8 @@ public:
                             Card::Card drawnCard,
                             std::vector<std::pair<Card::Card, bool>> hurdles,
                             bool gameDrawButtonActive,
-                            bool gameProceedButtonActive) :
+                            bool gameProceedButtonActive,
+                            Card::Suit victoriousSuit) :
         m_diamondPosition(diamondPosition),
         m_heartPosition(heartPosition),
         m_spadePosition(spadePosition),
@@ -29,7 +30,8 @@ public:
         m_drawnCard(drawnCard),
         m_hurdles(hurdles),
         m_gameDrawButtonActive(gameDrawButtonActive),
-        m_gameProceedButtonActive(gameProceedButtonActive) {}
+        m_gameProceedButtonActive(gameProceedButtonActive),
+        m_victoriousSuit(victoriousSuit) {}
 
     short getDiamondPosition() { return this->m_diamondPosition; }
     short getHeartPosition() { return this->m_heartPosition; }
@@ -40,6 +42,7 @@ public:
     std::vector<std::pair<Card::Card, bool>> getHurdles() { return this->m_hurdles; }
     bool getGameDrawButtonActive() { return this->m_gameDrawButtonActive; }
     bool getGameProceedButtonActive() { return this->m_gameProceedButtonActive; }
+    Card::Suit getVictoriousSuit() { return this->m_victoriousSuit; }
 
 private:
     short m_diamondPosition;
@@ -51,6 +54,7 @@ private:
     std::vector<std::pair<Card::Card, bool>> m_hurdles;
     bool m_gameDrawButtonActive;
     bool m_gameProceedButtonActive;
+    Card::Suit m_victoriousSuit;
 };
 
 class DrawCardUseCase

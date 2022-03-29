@@ -2,6 +2,7 @@
 #define MODEL_H
 
 // C++ Library Includes
+#include <iostream>
 #include <string>
 #include <map>
 
@@ -63,6 +64,12 @@ public:
     void setHurdles(const std::vector<std::pair<Card::Card, bool>>& hurdles) { this->m_hurdles = hurdles; }
     std::vector<std::pair<Card::Card, bool>> getHurdles() { return this->m_hurdles; }
 
+    void setVictoriousSuit(const Card::Suit& victoriousSuit) { this->m_victoriousSuit = victoriousSuit; }
+    Card::Suit getVictoriousSuit() { return this->m_victoriousSuit; }
+
+    void setVictoriousBets(const std::vector<Bet>& victoriousBets) { this->m_victoriousBets = victoriousBets; }
+    std::vector<Bet> getVictoriousBets() { return this->m_victoriousBets; }
+
 private:
     // Subject
     std::vector<std::shared_ptr<IObserver>> m_views;
@@ -85,7 +92,9 @@ private:
     std::vector<std::pair<Card::Card, bool>> m_hurdles;
     bool m_gameDrawButtonActive = true;
     bool m_gameProceedButtonActive = false;
+    Card::Suit m_victoriousSuit;
     // DistributeSips
+    std::vector<Bet> m_victoriousBets;
 };
 
 #endif // MODEL_H

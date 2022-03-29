@@ -11,42 +11,48 @@ DrawCardUseCaseResponse DrawCardUseCase::execute(short diamondPosition,
 {
     if (deck.size() == 0)
     {
-        return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, lastDrawnCard, hurdles, false, true);
+        return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, lastDrawnCard, hurdles, false, true, Card::Suit::Diamond);
     }
     Card::Card drawnCard = deck.draw();
 
-    bool isOver = false;
     switch (drawnCard.getSuit())
     {
         case Card::Suit::Diamond:
         {
-            isOver = dragCard(diamondPosition, 1);
+            if (dragCard(diamondPosition, 1))
+            {
+                return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Diamond);
+            }
             break;
         }
         case Card::Suit::Heart:
         {
-            isOver = dragCard(heartPosition, 1);
+            if (dragCard(heartPosition, 1))
+            {
+                return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Heart);
+            }
             break;
         }
         case Card::Suit::Spade:
         {
-            isOver = dragCard(spadePosition, 1);
+            if (dragCard(spadePosition, 1))
+            {
+                return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Spade);
+            }
             break;
         }
         case Card::Suit::Club:
         {
-            isOver = dragCard(clubPosition, 1);
+            if (dragCard(clubPosition, 1))
+            {
+                return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Club);
+            }
             break;
         }
         default:
         {
             break;
         }
-    }
-
-    if (isOver)
-    {
-        return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true);
     }
 
     int firstCoveredHurdleIndex = 0;
@@ -60,7 +66,6 @@ DrawCardUseCaseResponse DrawCardUseCase::execute(short diamondPosition,
         firstCoveredHurdleIndex++;
     }
 
-    bool isOverAfterHurdles = false;
     if (diamondPosition >= firstCoveredHurdleIndex + 1 &&
         heartPosition >= firstCoveredHurdleIndex + 1 &&
         spadePosition >= firstCoveredHurdleIndex + 1 &&
@@ -116,22 +121,34 @@ DrawCardUseCaseResponse DrawCardUseCase::execute(short diamondPosition,
         {
             case Card::Suit::Diamond:
             {
-                isOverAfterHurdles = dragCard(diamondPosition, dragNumber);
+                if (dragCard(diamondPosition, dragNumber))
+                {
+                    return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Diamond);
+                }
                 break;
             }
             case Card::Suit::Heart:
             {
-                isOverAfterHurdles = dragCard(heartPosition, dragNumber);
+                if (dragCard(heartPosition, dragNumber))
+                {
+                    return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Heart);
+                }
                 break;
             }
             case Card::Suit::Spade:
             {
-                isOverAfterHurdles = dragCard(spadePosition, dragNumber);
+                if (dragCard(spadePosition, dragNumber))
+                {
+                    return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Spade);
+                }
                 break;
             }
             case Card::Suit::Club:
             {
-                isOverAfterHurdles = dragCard(clubPosition, dragNumber);
+                if (dragCard(clubPosition, dragNumber))
+                {
+                    return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true, Card::Suit::Club);
+                }
                 break;
             }
             default:
@@ -139,14 +156,9 @@ DrawCardUseCaseResponse DrawCardUseCase::execute(short diamondPosition,
                 break;
             }
         }
-
-        if (isOverAfterHurdles)
-        {
-            return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, false, true);
-        }
     }
 
-    return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, true, false);
+    return DrawCardUseCaseResponse(diamondPosition, heartPosition, spadePosition, clubPosition, deck, drawnCard, hurdles, true, false, Card::Suit::Diamond);
 }
 
 bool DrawCardUseCase::dragCard(short& cardPosition, const short& steps)
