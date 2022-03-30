@@ -10,6 +10,5 @@ set(HEADERS
 )
 
 set(CPPS
-	${CMAKE_CURRENT_LIST_DIR}/source/Model.cpp
 	${CMAKE_CURRENT_LIST_DIR}/source/Controller.cpp
 )
