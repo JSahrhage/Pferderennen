@@ -44,17 +44,18 @@ set_property(TARGET doc_doxygen PROPERTY FOLDER "Doc")
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.11.0
+	URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
 )
+
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 set_property(TARGET gmock gmock_main gtest gtest_main PROPERTY FOLDER "External Projects")
 
 enable_testing()
-# Add more Tests to this List.
-# Be aware that you need to call your *.cpp and *.h file exactly like your test!
-set(UNIT_TESTS example)
+
+set(UNIT_TESTS CardDeckTest DrawCardTest)
+
 foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 	add_executable(${UNIT_TEST} ./test/source/${UNIT_TEST}.cpp ./test/include/${UNIT_TEST}.h)
 
@@ -62,6 +63,7 @@ foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 	target_include_directories(${UNIT_TEST}
 		PUBLIC
 			${PROJECT_SOURCE_DIR}/test/include
+			${source_dir}/test/include
 			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/0-Plugins/0-Plugins_autogen/include_Debug>
 			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/0-Plugins/0-Plugins_autogen/include_Release>
 			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/1-Adapters/1-Adapters_autogen/include_Debug>
@@ -70,7 +72,6 @@ foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/2-Application/2-Application_autogen/include_Release>
 			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/3-Domain/3-Domain_autogen/include_Debug>
 			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/3-Domains/3-Domain_autogen/include_Release>
-			${source_dir}/test/include
 			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Debug>
 			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Release>
 	)
@@ -89,8 +90,9 @@ foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 			gtest_main
 	)
 
-	add_test(NAME    ${UNIT_TEST} 
-			 COMMAND ${UNIT_TEST})
-			 
 	set_property(TARGET ${UNIT_TEST} PROPERTY FOLDER "Tests")
+
+	include(GoogleTest)
+	gtest_discover_tests(${UNIT_TEST})
+
 endforeach()

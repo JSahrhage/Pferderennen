@@ -8,29 +8,32 @@
 
 namespace Card
 {
-    Deck::Deck(const DeckType& deckType) : m_deckType(deckType)
+    Deck::Deck(const DeckType& deckType)
     {
-        fillDeck();
+        for (const Suit& suit : deckType.getSuits())
+        {
+            for (const Pip& pip : deckType.getPips())
+            {
+                m_deck.push_back(Card(Identifier(suit, pip)));
+            }
+        }
     }
 
-    void Deck::fillDeck()
+    Deck::Deck(const std::vector<Card>& deck) : m_deck(deck)
     {
-        for (const auto& cardSuit : m_deckType.getSuits())
-        {
-            addPips(cardSuit);
-        }
+
     }
 
     void Deck::shuffle()
     {
-        auto randomDevice = std::random_device{};
-        auto defaultRandomEngine = std::default_random_engine{ randomDevice() };
+        std::random_device randomDevice = std::random_device{};
+        std::default_random_engine defaultRandomEngine = std::default_random_engine{ randomDevice() };
         std::shuffle(std::begin(m_deck), std::end(m_deck), defaultRandomEngine);
     }
 
     int Deck::size()
     {
-        return m_deck.size();
+        return static_cast<int>(m_deck.size());
     }
 
     Card Deck::draw()
@@ -38,15 +41,5 @@ namespace Card
         auto drawnCard = m_deck.at(0);
         m_deck.erase(m_deck.cbegin());
         return drawnCard;
-    }
-
-    void Deck::addPips(const Suit& suit)
-    {
-        for (const auto& pip : m_deckType.getPips())
-        {
-            Identifier identifier = Identifier(suit, pip);
-            Card card = Card(identifier);
-            m_deck.push_back(card);
-        }
     }
 }

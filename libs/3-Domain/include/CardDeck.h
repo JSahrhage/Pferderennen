@@ -14,18 +14,14 @@ namespace Card
     {
     public:
         Deck(const DeckType& deckType);
+        Deck(const std::vector<Card>& deck);
 
-        void print();
         void shuffle();
         int size();
         Card draw();
 
     private:
-        void fillDeck();
-        void addPips(const Suit& suit);
-
         std::vector<Card> m_deck;
-        DeckType m_deckType;
     };
 }
 #endif // CARD_DECK_H
