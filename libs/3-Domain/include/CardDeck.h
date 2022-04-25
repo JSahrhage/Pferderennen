@@ -16,9 +16,9 @@ namespace Card
         Deck(const DeckType& deckType);
         Deck(const std::vector<Card>& deck);
 
-        void shuffle();
         int size();
         Card draw();
+        std::vector<Card> toCardVector();
 
     private:
         std::vector<Card> m_deck;

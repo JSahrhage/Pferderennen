@@ -24,13 +24,6 @@ namespace Card
 
     }
 
-    void Deck::shuffle()
-    {
-        std::random_device randomDevice = std::random_device{};
-        std::default_random_engine defaultRandomEngine = std::default_random_engine{ randomDevice() };
-        std::shuffle(std::begin(m_deck), std::end(m_deck), defaultRandomEngine);
-    }
-
     int Deck::size()
     {
         return static_cast<int>(m_deck.size());
@@ -41,5 +34,10 @@ namespace Card
         auto drawnCard = m_deck.at(0);
         m_deck.erase(m_deck.cbegin());
         return drawnCard;
+    }
+
+    std::vector<Card> Deck::toCardVector()
+    {
+        return this->m_deck;
     }
 }

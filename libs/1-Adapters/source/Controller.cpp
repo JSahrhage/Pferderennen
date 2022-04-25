@@ -2,15 +2,16 @@
 #include <iostream>
 
 // Project Includes
-#include "MagicEnum.h"
 #include "Controller.h"
 #include "Player.h"
 #include "Bet.h"
 
 // UseCases
-#include "InitializeGameUseCase.h"
 #include "DrawCardUseCase.h"
+#include "EnterPlayerUseCase.h"
 #include "GetVictoriousPlayerBetsUseCase.h"
+#include "InitializeGameUseCase.h"
+#include "ShuffleDeckUseCase.h"
 
 Controller::Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view) : m_model(model), m_view(view)
 {
@@ -36,24 +37,14 @@ void Controller::advancedModePushButtonClicked()
 
 void Controller::enterPlayerProceedButtonClicked(const std::vector<std::string>& players)
 {
-    std::vector<Player> castedPlayer;
-    for (const auto& player : players)
+    EnterPlayerUseCaseResponse enterPlayerUseCaseResponse = EnterPlayerUseCase::execute(players);
+
+    this->m_model->setPlayer(enterPlayerUseCaseResponse.getPlayer());
+
+    if (enterPlayerUseCaseResponse.getEnoughPlayer())
     {
-        if (player.empty())
-        {
-            continue;
-        }
-
-        castedPlayer.push_back(Player(player));
+        this->m_model->setGameView(Game::View::PlaceBets);
     }
-
-    if (castedPlayer.size() < 2)
-    {
-        return;
-    }
-
-    this->m_model->setPlayer(castedPlayer);
-    this->m_model->setGameView(Game::View::PlaceBets);
 }
 
 void Controller::placeBetsChooseGameModeButtonClicked()
@@ -68,18 +59,11 @@ void Controller::placeBetsEnterPlayerButtonClicked()
 
 void Controller::placeBetsProceedButtonClicked(const std::vector<std::tuple<std::string, std::string, int>>& bets)
 {
-    std::vector<Bet> castedBets;
-    for (const auto& bet : bets)
-    {
-        Player player = Player(std::get<0>(bet));
-        auto suit = magic_enum::enum_cast<Card::Suit>(std::get<1>(bet)).value();
-        int sips = std::get<2>(bet);
-        castedBets.push_back(Bet(player, suit, sips));
-    }
+    InitializeGameUseCaseResponse initializeGameUseCaseResponse = InitializeGameUseCase::execute(bets);
 
-    this->m_model->setOpenBets(castedBets);
+    ShuffleDeckUseCaseResponse shuffleDeckUseCaseResponse = ShuffleDeckUseCase::execute(initializeGameUseCaseResponse.getDeck());
 
-    InitializeGameUseCaseResponse initializeGameUseCaseResponse = InitializeGameUseCase::execute();
+    this->m_model->setOpenBets(initializeGameUseCaseResponse.getBets());
 
     this->m_model->setFirstCardDrawn(false);
 
@@ -87,7 +71,7 @@ void Controller::placeBetsProceedButtonClicked(const std::vector<std::tuple<std:
     this->m_model->setHeartPosition(0);
     this->m_model->setSpadePosition(0);
     this->m_model->setClubPosition(0);
-    this->m_model->setDeck(initializeGameUseCaseResponse.getDeck());
+    this->m_model->setDeck(shuffleDeckUseCaseResponse.getDeck());
     this->m_model->setHurdles(initializeGameUseCaseResponse.getHurdles());
     this->m_model->setGameDrawButtonActive(true);
     this->m_model->setGameProceedButtonActive(false);
