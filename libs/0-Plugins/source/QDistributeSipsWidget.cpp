@@ -19,7 +19,7 @@ void QDistributeSipsWidget::connects()
     connect(this->m_proceedPushButton, &QPushButton::clicked, this, &QDistributeSipsWidget::proceedButtonClicked);
 }
 
-void QDistributeSipsWidget::setController(std::shared_ptr<IController> controller)
+void QDistributeSipsWidget::setController(IController* controller)
 {
     this->m_controller = controller;
 }

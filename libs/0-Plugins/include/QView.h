@@ -3,7 +3,6 @@
 
 // C++ Library Includes
 #include <map>
-#include <memory>
 
 // Qt Includes
 #include <QMainWindow>
@@ -26,7 +25,7 @@ class QView : public IView
 public:
     QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig, std::shared_ptr<IConfig> sizeConfig);
 
-    void setController(std::shared_ptr<IController> controller) override;
+    void setController(IController* controller) override;
 
     void update() override;
 

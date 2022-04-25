@@ -19,17 +19,17 @@ public:
 	explicit QGameWidget(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig, std::shared_ptr<IConfig> sizeConfig, QWidget* parent = nullptr);
 	~QGameWidget();
 
-	void setController(std::shared_ptr<IController> controller);
+	void setController(IController* controller);
 
 	void updateUI();
+
+	void drawButtonClicked();
 
 private:
 	// Private Functions
 	void connects();
 
 	void generateGeneralLayout();
-
-	void drawButtonClicked();
 
 	void proceedButtonClicked();
 
@@ -51,7 +51,7 @@ private:
 
 	// Variables
 	std::shared_ptr<Model> m_model = nullptr;
-	std::shared_ptr<IController> m_controller = nullptr;
+	IController* m_controller = nullptr;
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;
 	std::shared_ptr<IConfig> m_sizeConfig = nullptr;
 	// Playground

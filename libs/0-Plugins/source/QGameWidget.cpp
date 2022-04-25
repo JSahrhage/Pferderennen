@@ -21,7 +21,7 @@ void QGameWidget::connects()
     connect(this->m_proceedPushButton, &QPushButton::clicked, this, &QGameWidget::proceedButtonClicked);
 }
 
-void QGameWidget::setController(std::shared_ptr<IController> controller)
+void QGameWidget::setController(IController* controller)
 {
     this->m_controller = controller;
 }

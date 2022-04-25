@@ -24,7 +24,7 @@ public:
 	explicit QEnterPlayerWidget(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig, QWidget* parent = nullptr);
 	~QEnterPlayerWidget();
 
-	void setController(std::shared_ptr<IController> controller);
+	void setController(IController* controller);
 
 	void updateUI();
 
@@ -41,7 +41,7 @@ private:
 	// Variables
 	std::shared_ptr<Model> m_model = nullptr;
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;
-	std::shared_ptr<IController> m_controller = nullptr;
+	IController* m_controller = nullptr;
 	std::vector<QTextEdit*> m_textEdits;
 
 	// Widgets

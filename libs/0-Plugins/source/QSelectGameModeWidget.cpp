@@ -22,7 +22,7 @@ void QSelectGameModeWidget::connects()
     connect(this->m_advancedModePushButton, &QPushButton::clicked, this, &QSelectGameModeWidget::advancedModePushButtonClicked);
 }
 
-void QSelectGameModeWidget::setController(std::shared_ptr<IController> controller)
+void QSelectGameModeWidget::setController(IController* controller)
 {
     this->m_controller = controller;
 }

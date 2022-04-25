@@ -29,7 +29,7 @@ QView::QView(std::shared_ptr<Model> model, std::shared_ptr<IConfig> assetConfig,
     this->m_mainWindow->setMinimumSize(1920, 1080);
 }
 
-void QView::setController(std::shared_ptr<IController> controller)
+void QView::setController(IController* controller)
 {
     for (auto const& [view, widget] : this->m_viewWidgets)
     {

@@ -18,7 +18,7 @@ void QEnterPlayerWidget::connects()
     connect(this->m_proceedPushButton, &QPushButton::clicked, this, &QEnterPlayerWidget::proceedButtonClicked);
 }
 
-void QEnterPlayerWidget::setController(std::shared_ptr<IController> controller)
+void QEnterPlayerWidget::setController(IController* controller)
 {
     this->m_controller = controller;
 }

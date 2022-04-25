@@ -22,7 +22,7 @@ void QPlaceBetsWidget::connects()
     connect(this->m_proceedPushButton, &QPushButton::clicked, this, &QPlaceBetsWidget::proceedButtonClicked);
 }
 
-void QPlaceBetsWidget::setController(std::shared_ptr<IController> controller)
+void QPlaceBetsWidget::setController(IController* controller)
 {
     this->m_controller = controller;
 }

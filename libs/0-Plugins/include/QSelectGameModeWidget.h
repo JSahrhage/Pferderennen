@@ -18,7 +18,7 @@ public:
 	explicit QSelectGameModeWidget(std::shared_ptr<IConfig> assetConfig, QWidget* parent = nullptr);
 	~QSelectGameModeWidget();
 
-	void setController(std::shared_ptr<IController> controller);
+	void setController(IController* controller);
 
 	void updateUI();
 
@@ -34,7 +34,7 @@ private:
 
 // Variables
 	std::shared_ptr<IConfig> m_assetConfig = nullptr;
-	std::shared_ptr<IController> m_controller = nullptr;
+	IController* m_controller = nullptr;
 
 // Widgets
 	QPushButton* m_loadSavedGamePushButton = new QPushButton;

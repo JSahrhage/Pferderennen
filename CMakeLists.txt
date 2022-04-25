@@ -54,12 +54,13 @@ set_property(TARGET gmock gmock_main gtest gtest_main PROPERTY FOLDER "External 
 
 enable_testing()
 
-set(UNIT_TESTS CardDeckTest DrawCardTest)
+set(UNIT_TESTS CardDeckTest DrawCardTest MockedControllerMockTest)
 
 foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 	add_executable(${UNIT_TEST} ./test/source/${UNIT_TEST}.cpp ./test/include/${UNIT_TEST}.h)
 
 	add_dependencies(${UNIT_TEST} gtest)
+	add_dependencies(${UNIT_TEST} gmock)
 	target_include_directories(${UNIT_TEST}
 		PUBLIC
 			${PROJECT_SOURCE_DIR}/test/include
@@ -88,6 +89,8 @@ foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 			Qt5::Gui
 			gtest
 			gtest_main
+			gmock
+			gmock_main
 	)
 
 	set_property(TARGET ${UNIT_TEST} PROPERTY FOLDER "Tests")
