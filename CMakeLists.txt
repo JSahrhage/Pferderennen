@@ -20,7 +20,7 @@ add_subdirectory(Libs/0-Plugins)
 add_subdirectory(Libs/1-Adapters)
 add_subdirectory(Libs/2-Application)
 add_subdirectory(Libs/3-Domain)
-add_subdirectory(Libs/4-Abstraction)
+add_subdirectory(Libs/4-Plate)
 
 option(BUILD_DOC ON)
 find_package(Doxygen)
@@ -73,8 +73,8 @@ foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/2-Application/2-Application_autogen/include_Release>
 			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/3-Domain/3-Domain_autogen/include_Debug>
 			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/3-Domains/3-Domain_autogen/include_Release>
-			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Debug>
-			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Release>
+			$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/4-Plate/4-Plate_autogen/include_Debug>
+			$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/4-Plate/4-Plate_autogen/include_Release>
 	)
 
 	target_link_libraries(${UNIT_TEST}
@@ -83,7 +83,7 @@ foreach(UNIT_TEST IN LISTS UNIT_TESTS)
 			Lib::1-Adapters
 			Lib::2-Application
 			Lib::3-Domain
-			Lib::4-Abstraction
+			Lib::4-Plate
 			Qt5::Widgets
 			Qt5::Core
 			Qt5::Gui

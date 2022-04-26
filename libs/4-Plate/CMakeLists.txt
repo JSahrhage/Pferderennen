@@ -1,4 +1,4 @@
-project(4-Abstraction LANGUAGES CXX)
+project(4-Plate LANGUAGES CXX)
 
 include(files.cmake)
 

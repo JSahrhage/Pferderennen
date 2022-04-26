@@ -12,13 +12,13 @@ target_include_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
 	PUBLIC
-		Lib::4-Abstraction
+		Lib::4-Plate
 )
 
 target_include_directories(${PROJECT_NAME}
 	PUBLIC
-		$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Debug>
-		$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/4-Abstraction/4-Abstraction_autogen/include_Release>
+		$<$<CONFIG:DEBUG>:${CMAKE_BINARY_DIR}/Libs/4-Plate/4-Plate_autogen/include_Debug>
+		$<$<CONFIG:RELEASE>:${CMAKE_BINARY_DIR}/Libs/4-Plate/4-Plate_autogen/include_Release>
 )
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER "Libs")
