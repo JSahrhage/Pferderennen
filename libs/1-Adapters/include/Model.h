@@ -12,6 +12,7 @@
 #include "GameMode.h"
 #include "CardDeck.h"
 #include "Card.h"
+#include "CardConverter.h"
 #include "Player.h"
 #include "Bet.h"
 

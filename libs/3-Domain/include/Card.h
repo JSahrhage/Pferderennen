@@ -18,7 +18,6 @@ namespace Card
 
         inline friend bool operator==(Card& lhs, Card& rhs) { return ((lhs.getSuit() == rhs.getSuit()) && (lhs.getPip() == rhs.getPip())); }
 
-        std::string getAcronym();
         Card::Suit getSuit() { return this->m_identifier.getSuit(); }
         Card::Pip getPip() { return this->m_identifier.getPip(); }
 

@@ -1,13 +1,13 @@
 // Project Includes
-#include "Card.h"
+#include "CardConverter.h"
 
 namespace Card
 {
-    std::string Card::getAcronym()
+    std::string Converter::convertToAcronym(Card& card)
     {
         std::string acronym;
 
-        switch (this->m_identifier.getPip())
+        switch (card.getPip())
         {
             case Pip::Ace:
             {
@@ -80,7 +80,7 @@ namespace Card
             }
         }
 
-        switch (this->m_identifier.getSuit())
+        switch (card.getSuit())
         {
             case Suit::Diamond:
             {

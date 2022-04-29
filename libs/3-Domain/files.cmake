@@ -1,6 +1,7 @@
 set(HEADERS
 	${CMAKE_CURRENT_LIST_DIR}/include/Bet.h
 	${CMAKE_CURRENT_LIST_DIR}/include/Card.h
+	${CMAKE_CURRENT_LIST_DIR}/include/CardConverter.h
 	${CMAKE_CURRENT_LIST_DIR}/include/CardDeck.h
 	${CMAKE_CURRENT_LIST_DIR}/include/CardDeckType.h
 	${CMAKE_CURRENT_LIST_DIR}/include/CardIdentifier.h
@@ -13,6 +14,6 @@ set(HEADERS
 
 set(CPPS
 	${CMAKE_CURRENT_LIST_DIR}/source/Bet.cpp
-	${CMAKE_CURRENT_LIST_DIR}/source/Card.cpp
+	${CMAKE_CURRENT_LIST_DIR}/source/CardConverter.cpp
 	${CMAKE_CURRENT_LIST_DIR}/source/CardDeck.cpp
 )

@@ -12,7 +12,8 @@
 // Qt Includes
 #include "QApplication"
 
-TEST(QGameWidgetTest, MockedControllerMockTest) {
+TEST(QGameWidgetTest, MockedControllerMockTest)
+{
     MockController controller;
 
     EXPECT_CALL(controller, gameDrawButtonClicked()).Times(1);

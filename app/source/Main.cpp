@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     QApplication application = QApplication(argc, argv);
     std::shared_ptr<Model> model = std::make_shared<Model>(Model());
     std::shared_ptr<QView> view = std::make_shared<QView>(QView(model, assetConfig, sizeConfig));
-    Controller controller = Controller(model, view);
+    Controller controller = Controller(model);
 
     model->attach(view);
     view->setController(&controller);

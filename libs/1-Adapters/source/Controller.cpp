@@ -13,7 +13,7 @@
 #include "InitializeGameUseCase.h"
 #include "ShuffleDeckUseCase.h"
 
-Controller::Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view) : m_model(model), m_view(view)
+Controller::Controller(std::shared_ptr<Model> model) : m_model(model)
 {
 
 }

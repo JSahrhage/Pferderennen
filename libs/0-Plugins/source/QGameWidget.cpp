@@ -303,7 +303,7 @@ void QGameWidget::updateDeck()
     {
         QMatrix rm;
         rm.rotate(90);
-        QImage openedCardImage(QString::fromStdString(pathToAssets + "/cards/" + this->m_model->getLastDrawnCard().getAcronym() + ".png"));
+        QImage openedCardImage(QString::fromStdString(pathToAssets + "/cards/" + Card::Converter::convertToAcronym(this->m_model->getLastDrawnCard()) + ".png"));
         QPixmap openedCardPixmap = QPixmap::fromImage(openedCardImage);
         openedCardPixmap = openedCardPixmap.transformed(rm);
 
@@ -324,7 +324,7 @@ void QGameWidget::updateHurdles()
     {
         if (isRevealed)
         {
-            QImage reveleadHurdleImage(QString::fromStdString(pathToAssets + "/cards/" + card.getAcronym() + ".png"));
+            QImage reveleadHurdleImage(QString::fromStdString(pathToAssets + "/cards/" + Card::Converter::convertToAcronym(card) + ".png"));
             QPixmap reveleadHurdlePixmap = QPixmap::fromImage(reveleadHurdleImage);
 
             reveleadHurdlePixmap = reveleadHurdlePixmap.transformed(rm);

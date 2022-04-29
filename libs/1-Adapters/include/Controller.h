@@ -12,7 +12,7 @@
 class Controller : public IController
 {
 public:
-    Controller(std::shared_ptr<Model> model, std::shared_ptr<IView> view);
+    Controller(std::shared_ptr<Model> model);
     void onLoad();
 
     void classicModePushButtonClicked();

@@ -21,7 +21,7 @@ namespace Card
 
     Deck::Deck(const std::vector<Card>& deck) : m_deck(deck)
     {
-
+        
     }
 
     int Deck::size()
