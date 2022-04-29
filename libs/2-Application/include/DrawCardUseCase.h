@@ -72,6 +72,35 @@ private:
     DrawCardUseCase() {}
 
     static bool dragCard(short& cardPosition, const short& steps);
+
+    static std::pair<bool, DrawCardUseCaseResponse> checkWinAfterInitialDrag(short& diamondPosition,
+                                                                             short& heartPosition,
+                                                                             short& spadePosition,
+                                                                             short& clubPosition,
+                                                                             const Card::Deck& deck,
+                                                                             Card::Card& drawnCard,
+                                                                             const std::vector<std::pair<Card::Card, bool>>& hurdles);
+
+    static int getFirstCoveredHurdleIndex(const std::vector<std::pair<Card::Card, bool>>& hurdles);
+
+    static bool doesHurdleNeedsToBeRevealed(const short& diamondPosition,
+                                            const short& heartPosition,
+                                            const short& spadePosition,
+                                            const short& clubPosition, 
+                                            const int& firstCoveredHurdleIndex);
+
+    static int getNumberOfDragsOfHurdle(const int& firstCoveredHurdleIndex,
+                                        std::vector<std::pair<Card::Card, bool>>& hurdles);
+
+    static std::pair<bool, DrawCardUseCaseResponse> checkWinAfterHurdleDrag(short& diamondPosition,
+                                                                            short& heartPosition,
+                                                                            short& spadePosition,
+                                                                            short& clubPosition,
+                                                                            const Card::Deck& deck,
+                                                                            Card::Card& drawnCard,
+                                                                            std::vector<std::pair<Card::Card, bool>>& hurdles,
+                                                                            const int& dragNumber,
+                                                                            const int& firstCoveredHurdleIndex);
 };
 
 #endif // DRAW_CARD_USE_CASE_H
